@@ -1,37 +1,41 @@
-require('css-modules-require-hook')
-require('babel-register')
+'use strict'
+
 const fs     = require('fs')
-const path   = require('path')
-const routes = require('../config/routes').default
-const app    = require('../source/index').default
 const mkdirp = require('mkdirp')
+const path   = require('path')
 
-console.log('We\'re building a thing')
+module.exports = function buildStatic (destDir, routes, app) {
+  return new Promise((resolve, reject) => {
+    let writing = 0
+    let written = []
 
-var writing = 0
+    routes.forEach((route) => {
+      const fileDir = path.join(
+        destDir,
+        route.slice(1)
+      )
 
-routes.forEach((route) => {
-  console.log('Writing: ', route)
-  const fileDir = path.join(
-    process.cwd(),
-    'dist',
-    route.slice(1)
-  )
-  mkdirp(fileDir, () => {
-    const filePath = path.join(
-      fileDir,
-      'index.html'
-    )
-    app(route, routes[path], (err, content) => {
-      ++writing
-      fs.writeFile(filePath, content, (err) => {
-        --writing
-        if (err) { throw new Error(err) }
-        console.log(`File written: ${ filePath }`)
-        if (writing === 0) {
-          console.log('And we\'re done')
-        }
+      mkdirp(fileDir, (err) => {
+        if (err) { return reject(err) }
+
+        const filePath = path.join(
+          fileDir,
+          'index.html'
+        )
+
+        app(route, (err, content) => {
+          if (err) { return reject(err) }
+          ++writing
+          fs.writeFile(filePath, content, (err) => {
+            if (err) { return reject(err) }
+            --writing
+            written.push(filePath)
+            if (writing === 0) {
+              resolve(written)
+            }
+          })
+        })
       })
     })
   })
-})
+}

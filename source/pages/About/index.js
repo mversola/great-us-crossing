@@ -4,7 +4,8 @@ import Main from '../../layouts/Main'
 export default () => (
   <Main title="My cool about page">
     <article>
-      About component
+      <p>About component</p>
+      <p><img src="/pages/About/john-abbott.jpg" /></p>
     </article>
   </Main>
 )

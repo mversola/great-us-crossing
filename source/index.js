@@ -8,9 +8,9 @@ if (typeof document !== 'undefined') {
   render(Site, document)
 }
 
-export default function staticRender (path, locals, callback) {
+export default function staticRender (route, callback) {
   match(
-    { routes: Site, location: path },
+    { routes: Site, location: route },
     (error, redirectLocation, renderProps) => {
       if (error) {
         return callback(error)
