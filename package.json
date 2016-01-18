@@ -12,11 +12,8 @@
   "scripts": {
     "build:setup": "rm -rf .dev/* dist/* && mkdir -p dist .dev",
     "serve:prod": "static dist",
-    "serve:dev": "nodemon -x 'node bin/server' -w source -e css,js",
-    "build:prod": "npm run build:setup && gulp build:prod",
-    "build:dev": "npm run build:setup && gulp build:dev",
-    "watch": "gulp watch",
-    "dev": "npm run build:dev && (npm run watch & npm run serve:dev)",
+    "build": "npm run build:setup && gulp build:prod",
+    "dev": "gulp dev",
     "test": "mocha --compilers js:babel-register,css:css-modules-require-hook --recursive source/**/__test__/*-test.js",
     "deploy:staging": "git-directory-deploy --directory dist --branch gh-pages"
   },
