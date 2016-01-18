@@ -1,7 +1,6 @@
 const babelify = require('babelify')
 const browserifyinc = require('browserify-incremental')
 const buffer = require('vinyl-buffer')
-const copy = require('gulp-copy')
 const cssModulesify = require('css-modulesify')
 const gulp = require('gulp')
 const gutil = require('gulp-util')
