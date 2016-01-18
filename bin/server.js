@@ -26,4 +26,5 @@ routes.forEach((route) => {
   })
 })
 
-http.createServer(server).listen(8080)
+module.exports = () =>
+  http.createServer(server).listen(8080)
