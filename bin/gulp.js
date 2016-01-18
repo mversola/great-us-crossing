@@ -35,13 +35,15 @@ bundler.plugin(cssModulesify, CSS_MODULES_OPTS)
 const bundle = () =>
   bundler
     .bundle()
-    .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+    .on('error', function (err) {
+      gutil.log(gutil.colors.red(err))
+      this.emit('end')
+    })
     .pipe(source('main.js'))
     .pipe(buffer())
     .pipe(gulp.dest(BUNDLE_DIR))
 
 gulp.task('bundle', bundle)
-bundler.on('update', bundle)
 bundler.on('log', gutil.log)
 
 const JS = [
@@ -106,14 +108,22 @@ gulp.task('build:static', ['revreplace'], () => {
   return buildStatic(DEST_DIR, routes, app)
 })
 
-gulp.task('build:prod', ['build:static'])
-
-gulp.task('watch', () => {
-  gulp.watch(BUNDLEABLE_ASSETS, ['bundle'])
-  gulp.watch(STATIC_ASSETS, ['static-assets'])
+gulp.task('watch:bundle', ['bundle'], () => {
+  return gulp.watch(BUNDLEABLE_ASSETS, bundle)
 })
 
-gulp.task('build:dev', ['bundle', 'static-assets'])
+gulp.task('watch:static-assets', ['static-assets'], () => {
+  return gulp.watch(STATIC_ASSETS, () => {
+    return gulp.start('static-assets')
+  })
+})
+
+gulp.task('watch', () => {
+  gulp.start(['watch:static-assets', 'watch:bundle'])
+})
+
 gulp.task('serve', devServer)
 
 gulp.task('dev', ['serve', 'watch'])
+
+gulp.task('build:prod', ['build:static'])
