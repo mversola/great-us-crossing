@@ -18,10 +18,10 @@ The site will be visible at: http://localhost:8080
 * CSS Modules
 * Generates HTML files from React app routes
 * Live rebuilding in development
+* Fingerprinted asset urls for use in both css and js files
 
 ## Planned features
 
-* Fingerprinted asset urls for use in both css and js files
 * Content management through `content/**/*.md` files
 * Redux + Redux dev tools
 * Live reloading
