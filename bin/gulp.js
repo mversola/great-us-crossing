@@ -8,7 +8,6 @@ const path = require('path')
 const rev = require('gulp-rev')
 const revReplace = require('gulp-rev-replace')
 const source = require('vinyl-source-stream')
-const watchify = require('watchify')
 
 const buildStatic = require('./build-static')
 const devServer = require('./server')
