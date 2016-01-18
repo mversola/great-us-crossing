@@ -17,11 +17,6 @@
     "test": "mocha --compilers js:babel-register,css:css-modules-require-hook --recursive source/**/__test__/*-test.js",
     "deploy:staging": "git-directory-deploy --directory dist --branch gh-pages"
   },
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
-  },
   "babel": {
     "presets": [
       "es2015",
