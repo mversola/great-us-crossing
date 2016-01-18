@@ -11,6 +11,7 @@ const source = require('vinyl-source-stream')
 const watchify = require('watchify')
 
 const buildStatic = require('./build-static')
+const devServer = require('./server')
 
 const SOURCE_DIR = 'source'
 const BUNDLE_DIR = '.dev'
@@ -114,3 +115,6 @@ gulp.task('watch', () => {
 })
 
 gulp.task('build:dev', ['bundle', 'static-assets'])
+gulp.task('serve', devServer)
+
+gulp.task('dev', ['serve', 'watch'])
