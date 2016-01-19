@@ -8,6 +8,8 @@ const path = require('path')
 const rev = require('gulp-rev')
 const revReplace = require('gulp-rev-replace')
 const source = require('vinyl-source-stream')
+const markdown = require('gulp-markdown-to-json')
+
 
 const buildStatic = require('./build-static')
 const devServer = require('./server')
@@ -60,6 +62,10 @@ const IMAGES = [
   '**/*.gif'
 ]
 
+const DATA = [
+  '**/*.json'
+]
+
 const BUNDLEABLE_ASSETS = [].concat(CSS, JS).map(
   (asset) => path.join(SOURCE_DIR, asset)
 )
@@ -73,7 +79,7 @@ gulp.task('static-assets', () => {
     .pipe(gulp.dest(BUNDLE_DIR))
 })
 
-const REVABLE = [].concat(JS, CSS, IMAGES).map(
+const REVABLE = [].concat(JS, CSS, IMAGES, DATA).map(
   asset => path.join(BUNDLE_DIR, asset)
 )
 
@@ -97,15 +103,37 @@ gulp.task('revreplace', ['revision'], () => {
     .pipe(gulp.dest(DEST_DIR))
 })
 
+gulp.task('content:dev', () => {
+  return gulp.src(path.join(SOURCE_DIR, 'content/**/*.md'))
+    .pipe(markdown())
+    .on('error', function (e) {
+      gutil.log(gutil.colors.red(err))
+      this.emit('end')
+    })
+    .pipe(gulp.dest(path.join(BUNDLE_DIR, 'content')))
+})
+
+gulp.task('content:prod',  () => {
+  return gulp.src(path.join(SOURCE_DIR, 'content/**/*.md'))
+    .pipe(markdown())
+    .pipe(gulp.dest(path.join(DEST_DIR, 'content')))
+})
+
 gulp.task('build:static', ['revreplace'], () => {
   const manifest   = require(path.join('../', DEST_DIR, 'rev-manifest.json'))
   const bundleName = manifest['main.js']
 
   require('babel-register')
   const routes = require('../config/routes').default
-  const app    = require(path.join('../', path.join(DEST_DIR), bundleName)).default
+  const app    = require(path.join('../', DEST_DIR, bundleName)).default
 
   return buildStatic(DEST_DIR, routes, app)
+})
+
+gulp.task('watch:content', ['content:dev'], () => {
+  return gulp.watch(path.join(SOURCE_DIR, 'content/**/*.md'), () => {
+    return gulp.start('content:dev')
+  })
 })
 
 gulp.task('watch:bundle', ['bundle'], () => {
@@ -119,11 +147,11 @@ gulp.task('watch:static-assets', ['static-assets'], () => {
 })
 
 gulp.task('watch', () => {
-  gulp.start(['watch:static-assets', 'watch:bundle'])
+  gulp.start(['watch:static-assets', 'watch:bundle', 'watch:content'])
 })
 
 gulp.task('serve', devServer)
 
 gulp.task('dev', ['serve', 'watch'])
 
-gulp.task('build:prod', ['build:static'])
+gulp.task('build', ['build:static'])
