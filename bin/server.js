@@ -17,10 +17,22 @@ const server = express()
 
 server.use(express.static(BASE))
 
+const clearCache = (parent) => {
+  if (!parent || !parent.children || !parent.children.length) {
+    return
+  }
+  parent.children.forEach((child) => {
+    delete parent.constructor._cache[child.id]
+    clearCache(child)
+  })
+  delete require.cache[parent.id]
+}
+
 routes.forEach((route) => {
   server.get(route, (req, res) => {
-    delete require.cache[reactAppPath]
+    clearCache(require.cache[reactAppPath])
     require(reactAppPath).default(route, (err, html) => {
+      if (err) { return console.log(err) }
       res.send(html)
     })
   })
