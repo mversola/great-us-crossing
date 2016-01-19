@@ -6,10 +6,10 @@ import Footer from '../Footer'
 import styles from './styles.css'
 
 export default (props) => (
-  <main className={ styles.Main }>
+  <article className={ styles.Main }>
     <Header { ...props } />
     { props.children }
     <Footer { ...props } />
-  </main>
+  </article>
 )
 
