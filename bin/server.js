@@ -1,5 +1,7 @@
 'use strict'
 
+require('../config/setup')
+
 const express = require('express')
 const http    = require('http')
 const fs      = require('fs')
@@ -7,13 +9,8 @@ const path    = require('path')
 
 const BASE  = path.resolve(__dirname, '../.dev')
 
-require('babel-register')
 const routes = require('../config/routes').default
 
-const hook = require('css-modules-require-hook')
-hook({
-  generateScopedName: (local, filename) => `${ local }`
-})
 const reactAppPath = require.resolve('../source')
 const server = express()
 

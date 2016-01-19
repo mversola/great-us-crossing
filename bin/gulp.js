@@ -1,3 +1,5 @@
+require('../config/setup')
+
 const babelify = require('babelify')
 const browserifyinc = require('browserify-incremental')
 const buffer = require('vinyl-buffer')
@@ -30,7 +32,7 @@ const BROWSERIFY_OPTS = {
 
 const CSS_MODULES_OPTS = {
   output: path.join(DEV_DIR, 'main.css'),
-  generateScopedName: (local, filename) => `${ local }`
+  generateScopedName: require('../config/css-modules-scope-generator')
 }
 
 const bundler = browserifyinc(Object.assign({}, BROWSERIFY_OPTS))
