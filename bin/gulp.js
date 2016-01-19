@@ -47,9 +47,7 @@ const serverBundler = browserifyinc(Object.assign({}, BROWSERIFY_OPTS, {
   insertGlobalVars: {
     __filename: insertGlobals.vars.__filename,
     __dirname: insertGlobals.vars.__dirname,
-    process: function() {
-        return;
-    }
+    process: () => {}
   }
 }))
 serverBundler.plugin(cssModulesify, CSS_MODULES_OPTS)
