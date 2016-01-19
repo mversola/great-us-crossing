@@ -4,7 +4,8 @@ import store from '../'
 const { assign } = Object
 
 export const fetchPage = (state, route) => {
-  fetch(`http://localhost:8080/content/${ route.replace(/^\//, '').replace(/\/$/, '') }.json`)
+  const contentFile = route.replace(/^\/|\/$/g, '')
+  fetch(`http://localhost:8080/content/${ contentFile }.json`)
     .then((response) => {
       return response.json()
     })
@@ -45,12 +46,12 @@ export const receivePageFailure = (state, route, error) => {
 
 export const receivePageSuccess = (state, route, content) => {
   return assign(state, {
-     pages: {
-       ...state.pages,
-       [route]: {
-         status: 'fetched',
-         content: content
-       }
-     }
-   })
+    pages: {
+      ...state.pages,
+      [route]: {
+        status: 'fetched',
+        content: content
+      }
+    }
+  })
 }
