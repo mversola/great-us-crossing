@@ -13,7 +13,6 @@ if (typeof document !== 'undefined') {
   match(
     { routes: Routes, location },
     (error, redirectLocation, renderProps) => {
-      console.log(error, redirectLocation, renderProps)
       render(
         <Provider store={ store }>
           <Router { ...renderProps } history={ createHistory() } />
