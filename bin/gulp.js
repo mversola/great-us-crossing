@@ -1,5 +1,3 @@
-require('../config/setup')
-
 const babelify = require('babelify')
 const browserifyinc = require('browserify-incremental')
 const buffer = require('vinyl-buffer')
@@ -19,26 +17,44 @@ const SOURCE_DIR = 'source'
 const DEV_DIR = '.dev'
 const DEST_DIR = 'dist'
 
-const REVVED_APP_DIR = '.rev'
+const SERVER_APP_DIR = '.server'
 
 const BROWSERIFY_OPTS = {
   entries: [path.join(SOURCE_DIR, 'index.js')],
   transform: [babelify],
   standalone: 'app',
-  cache: {},
-  packageCache: {},
   debug: true
 }
 
 const CSS_MODULES_OPTS = {
   output: path.join(DEV_DIR, 'main.css'),
-  generateScopedName: require('../config/css-modules-scope-generator')
+  generateScopedName: require('./css-modules-scope-generator')
 }
 
-const bundler = browserifyinc(Object.assign({}, BROWSERIFY_OPTS))
-bundler.plugin(cssModulesify, CSS_MODULES_OPTS)
+const clientBundler = browserifyinc(Object.assign({}, BROWSERIFY_OPTS, {
+  cache: {},
+  packageCache: {},
+}))
+clientBundler.plugin(cssModulesify, CSS_MODULES_OPTS)
 
-const bundle = () =>
+const insertGlobals = require('insert-module-globals')
+
+const serverBundler = browserifyinc(Object.assign({}, BROWSERIFY_OPTS, {
+  cache: {},
+  packageCache: {},
+  browserField: false,
+  builtins: false,
+  insertGlobalVars: {
+    __filename: insertGlobals.vars.__filename,
+    __dirname: insertGlobals.vars.__dirname,
+    process: function() {
+        return;
+    }
+  }
+}))
+serverBundler.plugin(cssModulesify, CSS_MODULES_OPTS)
+
+const bundle = (bundler, outputDir) => () =>
   bundler
     .bundle()
     .on('error', function (err) {
@@ -47,10 +63,12 @@ const bundle = () =>
     })
     .pipe(source('main.js'))
     .pipe(buffer())
-    .pipe(gulp.dest(DEV_DIR))
+    .pipe(gulp.dest(outputDir))
 
-gulp.task('bundle', bundle)
-bundler.on('log', gutil.log)
+gulp.task('bundle:client-app', bundle(clientBundler, DEV_DIR))
+gulp.task('bundle:server-app', bundle(serverBundler, SERVER_APP_DIR))
+clientBundler.on('log', gutil.log)
+serverBundler.on('log', gutil.log)
 
 const JS = [
   '**/*.js'
@@ -103,7 +121,7 @@ const REVABLE = [].concat(JS, CSS, IMAGES).map(
   asset => path.join(DEV_DIR, asset)
 )
 
-gulp.task('revision', ['bundle', 'static-assets', 'content:prod'], () => {
+gulp.task('revision', ['bundle:client-app', 'static-assets', 'content:prod'], () => {
   return gulp.src(REVABLE)
     .pipe(rev())
     .pipe(gulp.dest(DEST_DIR))
@@ -111,10 +129,9 @@ gulp.task('revision', ['bundle', 'static-assets', 'content:prod'], () => {
     .pipe(gulp.dest(DEST_DIR))
 })
 
-gulp.task('static', ['content:prod', 'revreplace:app'], () => {
-  require('babel-register')
-  const routes = require('../config/routes').default
-  const app    = require(path.join('../', REVVED_APP_DIR, 'index.js')).default
+gulp.task('static', ['content:prod', 'revreplace:server-app'], () => {
+  const routes = require('../config/routes')
+  const app    = require(path.join('../', SERVER_APP_DIR, 'main.js')).default
 
   return buildStatic(DEST_DIR, routes, app)
 })
@@ -131,16 +148,16 @@ gulp.task('revreplace:assets', ['revision'], () => {
     .pipe(gulp.dest(DEST_DIR))
 })
 
-const REV_REPLACEABLE_APP = [].concat(JS, CSS).map(
-  asset => path.join(SOURCE_DIR, asset)
+const REV_REPLACEABLE_SERVER_APP = [].concat(JS, CSS).map(
+  asset => path.join(SERVER_APP_DIR, asset)
 )
 
-gulp.task('revreplace:app', ['revision'], () => {
+gulp.task('revreplace:server-app', ['revision', 'bundle:server-app'], () => {
   const manifest = gulp.src(path.join(DEST_DIR, 'rev-manifest.json'))
 
-  return gulp.src(REV_REPLACEABLE_APP)
+  return gulp.src(REV_REPLACEABLE_SERVER_APP)
     .pipe(revReplace({ manifest: manifest }))
-    .pipe(gulp.dest(REVVED_APP_DIR))
+    .pipe(gulp.dest(SERVER_APP_DIR))
 })
 
 gulp.task('watch:content', ['content:dev'], () => {
@@ -149,8 +166,10 @@ gulp.task('watch:content', ['content:dev'], () => {
   })
 })
 
-gulp.task('watch:bundle', ['bundle'], () => {
-  return gulp.watch(BUNDLEABLE_ASSETS, bundle)
+gulp.task('watch:bundle', ['bundle:client-app', 'bundle:server-app'], () => {
+  return gulp.watch(BUNDLEABLE_ASSETS, () => {
+    gulp.start(['bundle:client-app', 'bundle:server-app'])
+  })
 })
 
 gulp.task('watch:static-assets', ['static-assets'], () => {
@@ -163,7 +182,7 @@ gulp.task('watch', () => {
   gulp.start(['watch:static-assets', 'watch:bundle', 'watch:content'])
 })
 
-gulp.task('serve', devServer)
+gulp.task('serve', ['bundle:server-app'], devServer)
 
 gulp.task('dev', ['serve', 'watch'])
 

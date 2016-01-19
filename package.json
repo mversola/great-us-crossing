@@ -67,6 +67,7 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "history": "^1.17.0",
+    "insert-module-globals": "^7.0.1",
     "isomorphic-fetch": "^2.2.1",
     "jsdom": "^7.2.2",
     "mkdirp": "^0.5.1",

@@ -2,4 +2,4 @@ node_modules
 dist
 browserify-cache.json
 .dev
-.rev
+.server

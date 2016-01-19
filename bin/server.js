@@ -1,7 +1,5 @@
 'use strict'
 
-require('../config/setup')
-
 const express = require('express')
 const http    = require('http')
 const fs      = require('fs')
@@ -9,9 +7,8 @@ const path    = require('path')
 
 const BASE  = path.resolve(__dirname, '../.dev')
 
-const routes = require('../config/routes').default
+const routes = require('../config/routes')
 
-const reactAppPath = require.resolve('../source')
 const server = express()
 
 server.use(express.static(BASE))
@@ -29,7 +26,8 @@ const clearCache = (parent) => {
 
 routes.forEach((route) => {
   server.get(route, (req, res) => {
-    clearCache(require.cache[reactAppPath])
+    const reactAppPath = require.resolve('../.server/main')
+    delete require.cache[reactAppPath]
     require(reactAppPath).default(route, (err, html) => {
       if (err) { return console.log(err) }
       res.send(html)
