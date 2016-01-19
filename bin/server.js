@@ -5,13 +5,15 @@ const http    = require('http')
 const fs      = require('fs')
 const path    = require('path')
 
-const INDEX = path.resolve(__dirname, '../.dev/index.html')
 const BASE  = path.resolve(__dirname, '../.dev')
 
 require('babel-register')
 const routes = require('../config/routes').default
 
-require('css-modules-require-hook')
+const hook = require('css-modules-require-hook')
+hook({
+  generateScopedName: (local, filename) => `${ local }`
+})
 const reactAppPath = require.resolve('../source')
 const server = express()
 

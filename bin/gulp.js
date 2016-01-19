@@ -10,13 +10,14 @@ const revReplace = require('gulp-rev-replace')
 const source = require('vinyl-source-stream')
 const markdown = require('gulp-markdown-to-json')
 
-
 const buildStatic = require('./build-static')
 const devServer = require('./server')
 
 const SOURCE_DIR = 'source'
-const BUNDLE_DIR = '.dev'
+const DEV_DIR = '.dev'
 const DEST_DIR = 'dist'
+
+const REVVED_APP_DIR = '.rev'
 
 const BROWSERIFY_OPTS = {
   entries: [path.join(SOURCE_DIR, 'index.js')],
@@ -28,7 +29,8 @@ const BROWSERIFY_OPTS = {
 }
 
 const CSS_MODULES_OPTS = {
-  output: path.join(BUNDLE_DIR, 'main.css')
+  output: path.join(DEV_DIR, 'main.css'),
+  generateScopedName: (local, filename) => `${ local }`
 }
 
 const bundler = browserifyinc(Object.assign({}, BROWSERIFY_OPTS))
@@ -43,7 +45,7 @@ const bundle = () =>
     })
     .pipe(source('main.js'))
     .pipe(buffer())
-    .pipe(gulp.dest(BUNDLE_DIR))
+    .pipe(gulp.dest(DEV_DIR))
 
 gulp.task('bundle', bundle)
 bundler.on('log', gutil.log)
@@ -76,31 +78,7 @@ const STATIC_ASSETS = [].concat(IMAGES).map(
 
 gulp.task('static-assets', () => {
   return gulp.src(STATIC_ASSETS)
-    .pipe(gulp.dest(BUNDLE_DIR))
-})
-
-const REVABLE = [].concat(JS, CSS, IMAGES, DATA).map(
-  asset => path.join(BUNDLE_DIR, asset)
-)
-
-gulp.task('revision', ['bundle', 'static-assets'], () => {
-  return gulp.src(REVABLE)
-    .pipe(rev())
-    .pipe(gulp.dest(DEST_DIR))
-    .pipe(rev.manifest())
-    .pipe(gulp.dest(DEST_DIR))
-})
-
-const REV_REPLACEABLE = [].concat(JS, CSS).map(
-  asset => path.join(DEST_DIR, asset)
-)
-
-gulp.task('revreplace', ['revision'], () => {
-  const manifest = gulp.src(path.join(DEST_DIR, 'rev-manifest.json'))
-
-  return gulp.src(REV_REPLACEABLE)
-    .pipe(revReplace({ manifest: manifest }))
-    .pipe(gulp.dest(DEST_DIR))
+    .pipe(gulp.dest(DEV_DIR))
 })
 
 gulp.task('content:dev', () => {
@@ -110,7 +88,7 @@ gulp.task('content:dev', () => {
       gutil.log(gutil.colors.red(err))
       this.emit('end')
     })
-    .pipe(gulp.dest(path.join(BUNDLE_DIR, 'content')))
+    .pipe(gulp.dest(path.join(DEV_DIR, 'content')))
 })
 
 gulp.task('content:prod',  () => {
@@ -119,15 +97,48 @@ gulp.task('content:prod',  () => {
     .pipe(gulp.dest(path.join(DEST_DIR, 'content')))
 })
 
-gulp.task('build:static', ['revreplace'], () => {
-  const manifest   = require(path.join('../', DEST_DIR, 'rev-manifest.json'))
-  const bundleName = manifest['main.js']
+const REVABLE = [].concat(JS, CSS, IMAGES).map(
+  asset => path.join(DEV_DIR, asset)
+)
 
+gulp.task('revision', ['bundle', 'static-assets', 'content:prod'], () => {
+  return gulp.src(REVABLE)
+    .pipe(rev())
+    .pipe(gulp.dest(DEST_DIR))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest(DEST_DIR))
+})
+
+gulp.task('static', ['content:prod', 'revreplace:app'], () => {
   require('babel-register')
   const routes = require('../config/routes').default
-  const app    = require(path.join('../', DEST_DIR, bundleName)).default
+  const app    = require(path.join('../', REVVED_APP_DIR, 'index.js')).default
 
   return buildStatic(DEST_DIR, routes, app)
+})
+
+const REV_REPLACEABLE_ASSETS = [].concat(JS, CSS, DATA).map(
+  asset => path.join(DEST_DIR, asset)
+)
+
+gulp.task('revreplace:assets', ['revision'], () => {
+  const manifest = gulp.src(path.join(DEST_DIR, 'rev-manifest.json'))
+
+  return gulp.src(REV_REPLACEABLE_ASSETS)
+    .pipe(revReplace({ manifest: manifest }))
+    .pipe(gulp.dest(DEST_DIR))
+})
+
+const REV_REPLACEABLE_APP = [].concat(JS, CSS).map(
+  asset => path.join(SOURCE_DIR, asset)
+)
+
+gulp.task('revreplace:app', ['revision'], () => {
+  const manifest = gulp.src(path.join(DEST_DIR, 'rev-manifest.json'))
+
+  return gulp.src(REV_REPLACEABLE_APP)
+    .pipe(revReplace({ manifest: manifest }))
+    .pipe(gulp.dest(REVVED_APP_DIR))
 })
 
 gulp.task('watch:content', ['content:dev'], () => {
@@ -154,4 +165,4 @@ gulp.task('serve', devServer)
 
 gulp.task('dev', ['serve', 'watch'])
 
-gulp.task('build', ['build:static'])
+gulp.task('build', ['revreplace:assets', 'static'])
