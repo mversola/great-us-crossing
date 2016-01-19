@@ -7,7 +7,7 @@ const path    = require('path')
 
 const BASE  = path.resolve(__dirname, '../.dev')
 
-const routes = require('../config/routes')
+const routes = require('../config/static-routes')
 
 const server = express()
 

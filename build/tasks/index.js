@@ -10,8 +10,8 @@ const revReplace = require('gulp-rev-replace')
 const source = require('vinyl-source-stream')
 const markdown = require('gulp-markdown-to-json')
 
-const buildStatic = require('./build-static')
-const devServer = require('./server')
+const buildStatic = require('../build-static')
+const devServer = require('../server')
 
 const SOURCE_DIR = 'source'
 const DEV_DIR = '.dev'
@@ -28,7 +28,7 @@ const BROWSERIFY_OPTS = {
 
 const CSS_MODULES_OPTS = {
   output: path.join(DEV_DIR, 'main.css'),
-  generateScopedName: require('./css-modules-scope-generator')
+  generateScopedName: require('../css-modules-scope-generator')
 }
 
 const clientBundler = browserifyinc(Object.assign({}, BROWSERIFY_OPTS, {
@@ -128,8 +128,8 @@ gulp.task('revision', ['bundle:client-app', 'static-assets', 'content:prod'], ()
 })
 
 gulp.task('static', ['content:prod', 'revreplace:server-app'], () => {
-  const routes = require('../config/routes')
-  const app    = require(path.join('../', SERVER_APP_DIR, 'main.js')).default
+  const routes = require('../../config/static-routes')
+  const app    = require(path.join('../../', SERVER_APP_DIR, 'main.js')).default
 
   return buildStatic(DEST_DIR, routes, app)
 })

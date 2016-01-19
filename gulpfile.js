@@ -1,1 +1,1 @@
-require('./bin/gulp')
+require('./build/tasks')
