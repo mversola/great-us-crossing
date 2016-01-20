@@ -1,4 +1,7 @@
 ---
+env:
+  BUILDKITE_DOCKER_COMPOSE_CONTAINER: build
+  BUILDKITE_DOCKER_COMPOSE_FILE: docker-compose.buildkite.yml
 steps:
   - wait
 
