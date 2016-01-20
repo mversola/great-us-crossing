@@ -1,0 +1,13 @@
+---
+steps:
+  - wait
+
+  - name: ":nodejs: Build It"
+    command: "npm install && npm run build"
+    artifact_paths: "dist/**/*"
+
+  - wait
+
+  - name: ":shipit: Ship It"
+    command: "buildkite-agent artifact download 'dist/**/*' ."
+    branches: master
