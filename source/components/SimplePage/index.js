@@ -4,20 +4,19 @@ import Main from '../../layouts/Main'
 import styles from './styles.css'
 
 export default connect(
-  ({ pages }) => ({
-    content: (pages['/about'] || {}).content
-  })
-)(({ content = {}}) => {
+  ({ pages }) => ({ pages })
+)(({ pages, params }) => {
+  const { content } = pages[`/${ params.path }`]
   const { title, body } = content
 
   return (
     <Main title={ title }>
-      <section className={ styles.About }>
+      <section className={ styles.SimplePage }>
         <div dangerouslySetInnerHTML={{
           __html: body
         }} />
-        <p><img src="/pages/About/john-abbott.jpg" /></p>
       </section>
     </Main>
   )
 })
+
