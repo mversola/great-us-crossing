@@ -24,8 +24,9 @@ export const fetchPage = (state, route) => {
       })
     })
 
-  return assign(state, {
+  return assign({}, state, {
     pages: {
+      ...state.pages,
       [route]: {
         status: 'fetching'
       }
@@ -34,8 +35,9 @@ export const fetchPage = (state, route) => {
 }
 
 export const receivePageFailure = (state, route, error) => {
-  return assign(state, {
+  return assign({}, state, {
     pages: {
+      ...state.pages,
       [route]: {
         status: 'failed',
         error
@@ -45,7 +47,7 @@ export const receivePageFailure = (state, route, error) => {
 }
 
 export const receivePageSuccess = (state, route, content) => {
-  return assign(state, {
+  return assign({}, state, {
     pages: {
       ...state.pages,
       [route]: {
