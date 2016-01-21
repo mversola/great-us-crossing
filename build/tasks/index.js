@@ -1,5 +1,4 @@
 const babelify = require('babelify')
-const ghPages = require('gulp-gh-pages')
 const browserifyinc = require('browserify-incremental')
 const buffer = require('vinyl-buffer')
 const cssModulesify = require('css-modulesify')
@@ -166,11 +165,6 @@ gulp.task('revreplace:server-app', ['revision', 'bundle:server-app'], () => {
   return gulp.src(REV_REPLACEABLE_SERVER_APP)
     .pipe(revReplace(revReplaceOptions(manifest)))
     .pipe(gulp.dest(SERVER_APP_DIR))
-})
-
-gulp.task('deploy:staging', ['build'], () => {
-  return gulp.src('./dist/**/*')
-    .pipe(ghPages())
 })
 
 gulp.task('watch:content', ['content:dev'], () => {
