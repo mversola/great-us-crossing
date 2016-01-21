@@ -58,6 +58,7 @@
     "chai": "^3.4.1",
     "css-modules-require-hook": "^2.1.0",
     "css-modulesify": "^0.16.1",
+    "envify": "^3.4.0",
     "express": "^4.13.3",
     "gh-pages": "^0.8.0",
     "gulp": "^3.9.0",

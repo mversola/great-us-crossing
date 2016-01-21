@@ -1,4 +1,5 @@
 const babelify = require('babelify')
+const envify = require('envify/custom')
 const browserifyinc = require('browserify-incremental')
 const buffer = require('vinyl-buffer')
 const cssModulesify = require('css-modulesify')
@@ -34,6 +35,9 @@ const CSS_MODULES_OPTS = {
 const clientBundler = browserifyinc(Object.assign({}, BROWSERIFY_OPTS, {
   cache: {},
   packageCache: {},
+}))
+clientBundler.transform(envify({
+  NODE_ENV: process.env.NODE_ENV
 }))
 clientBundler.plugin(cssModulesify, CSS_MODULES_OPTS)
 
