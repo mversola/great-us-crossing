@@ -15,7 +15,7 @@
     "build": "npm run build:setup && NODE_ENV=production gulp build",
     "dev": "gulp dev",
     "test": "mocha --compilers js:babel-register,css:css-modules-require-hook --recursive source/**/__test__/*-test.js",
-    "deploy:staging": "git-directory-deploy --directory dist --branch gh-pages"
+    "deploy:staging": "npm run build && gh-pages -d dist"
   },
   "babel": {
     "presets": [
@@ -59,7 +59,7 @@
     "css-modules-require-hook": "^2.1.0",
     "css-modulesify": "^0.16.1",
     "express": "^4.13.3",
-    "git-directory-deploy": "^1.4.0",
+    "gh-pages": "^0.8.0",
     "gulp": "^3.9.0",
     "gulp-markdown-to-json": "^0.2.1",
     "gulp-rev": "^6.0.1",
