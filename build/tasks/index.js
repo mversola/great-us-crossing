@@ -127,11 +127,20 @@ gulp.task('revision', ['bundle:client-app', 'static-assets', 'content:prod'], ()
     .pipe(gulp.dest(DEST_DIR))
 })
 
-gulp.task('static', ['content:prod', 'revreplace:server-app'], () => {
+gulp.task('static', ['revreplace:server-app'], () => {
   const routes = require('../../config/static-routes')
   const app    = require(path.join('../../', SERVER_APP_DIR, 'main.js')).default
 
   return buildStatic(DEST_DIR, routes, app)
+})
+
+const config = require('../../config/environment')
+
+const revReplaceOptions = (manifest) => ({
+  manifest: manifest,
+  replaceInExtensions: ['.js', '.css', '.json'],
+  modifyUnreved: (name) => `/${ name }`,
+  modifyReved: (name) => `${ config.client.host }${ config.client.basePath }/${ name }`
 })
 
 const REV_REPLACEABLE_ASSETS = [].concat(JS, CSS, DATA).map(
@@ -142,7 +151,7 @@ gulp.task('revreplace:assets', ['revision'], () => {
   const manifest = gulp.src(path.join(DEST_DIR, 'rev-manifest.json'))
 
   return gulp.src(REV_REPLACEABLE_ASSETS)
-    .pipe(revReplace({ manifest: manifest }))
+    .pipe(revReplace(revReplaceOptions(manifest)))
     .pipe(gulp.dest(DEST_DIR))
 })
 
@@ -154,7 +163,7 @@ gulp.task('revreplace:server-app', ['revision', 'bundle:server-app'], () => {
   const manifest = gulp.src(path.join(DEST_DIR, 'rev-manifest.json'))
 
   return gulp.src(REV_REPLACEABLE_SERVER_APP)
-    .pipe(revReplace({ manifest: manifest }))
+    .pipe(revReplace(revReplaceOptions(manifest)))
     .pipe(gulp.dest(SERVER_APP_DIR))
 })
 

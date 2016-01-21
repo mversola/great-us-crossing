@@ -10,6 +10,8 @@ const app     = express()
 const BASE  = path.resolve(__dirname, '../dist')
 app.use(express.static(BASE))
 
+const config = require('../config/environment')
+
 const handleError = (error, reject, server) => {
   server.close()
   return reject(error)
@@ -37,7 +39,7 @@ module.exports = function buildStatic (destDir, routes, reactApp) {
             'index.html'
           )
 
-          reactApp(route, (err, content) => {
+          reactApp(`${ config.server.basePath }${ route }`, (err, content) => {
             if (err) {
               return handleError(err, reject, server)
             }

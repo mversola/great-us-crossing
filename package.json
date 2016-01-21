@@ -12,7 +12,7 @@
   "scripts": {
     "build:setup": "rm -rf .dev/* dist/* && mkdir -p dist .dev",
     "serve:prod": "static dist",
-    "build": "npm run build:setup && gulp build",
+    "build": "npm run build:setup && NODE_ENV=production gulp build",
     "dev": "gulp dev",
     "test": "mocha --compilers js:babel-register,css:css-modules-require-hook --recursive source/**/__test__/*-test.js",
     "deploy:staging": "git-directory-deploy --directory dist --branch gh-pages"

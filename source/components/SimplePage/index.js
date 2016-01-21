@@ -6,7 +6,7 @@ import styles from './styles.css'
 export default connect(
   ({ pages }) => ({ pages })
 )(({ pages, params }) => {
-  const { content } = pages[`/${ params.path }`]
+  const { content } = pages[params.path]
   const { title, body } = content
 
   return (

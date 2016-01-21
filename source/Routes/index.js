@@ -6,6 +6,8 @@ import store from '../store'
 import Home from '../pages/Home'
 import SimplePage from '../components/SimplePage'
 
+import config from '../config'
+
 const isFetched = ({ status }) =>
   status === 'fetched'
 
@@ -13,7 +15,7 @@ const isFailed = ({ status }) =>
   status === 'failed'
 
 const handlePageEnter = (nextState, replace, callback) => {
-  const route = nextState.location.pathname.replace(/\/$/, '')
+  const route = nextState.params.path.replace(/\/$/, '')
   const unsubscribe = store.subscribe(() => {
     const state = store.getState()
     if (isFetched(state.pages[route])) {
@@ -31,12 +33,12 @@ const handlePageEnter = (nextState, replace, callback) => {
 }
 
 export default (
-  <Route path="/" component={ ({ children }) => children }>
-    <IndexRoute
-      component={ Home }
-    />
+  <Route
+    path={ `${ config.basePath }/` }
+    component={ ({ children }) => children }>
+    <IndexRoute component={ Home } />
     <Route
-      path="/:path"
+      path=":path"
       component={ SimplePage }
       onEnter={ handlePageEnter }
     />
