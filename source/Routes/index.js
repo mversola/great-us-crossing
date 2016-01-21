@@ -6,7 +6,7 @@ import store from '../store'
 import Home from '../pages/Home'
 import SimplePage from '../components/SimplePage'
 
-import config from '../config'
+import { context } from '../config'
 
 const isFetched = ({ status }) =>
   status === 'fetched'
@@ -34,7 +34,7 @@ const handlePageEnter = (nextState, replace, callback) => {
 
 export default (
   <Route
-    path={ `${ config.basePath }/` }
+    path={ `${ context.basePath }/` }
     component={ ({ children }) => children }>
     <IndexRoute component={ Home } />
     <Route

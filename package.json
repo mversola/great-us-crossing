@@ -11,11 +11,11 @@
   },
   "scripts": {
     "build:setup": "rm -rf .dev/* dist/* && mkdir -p dist .dev",
-    "serve:prod": "static dist",
-    "build": "npm run build:setup && NODE_ENV=production gulp build",
+    "build:prod": "npm run build:setup && NODE_ENV=production gulp build",
+    "build:staging": "npm run build:setup && NODE_ENV=staging gulp build",
     "dev": "gulp dev",
     "test": "mocha --compilers js:babel-register,css:css-modules-require-hook --recursive source/**/__test__/*-test.js",
-    "deploy:staging": "npm run build && gh-pages -d dist"
+    "deploy:staging": "npm run build:staging && gh-pages -d dist"
   },
   "babel": {
     "presets": [

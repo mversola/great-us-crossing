@@ -1,13 +1,13 @@
 import 'isomorphic-fetch'
 import store from '../'
 
-import config from '../../config'
+import { context } from '../../config'
 
 const { assign } = Object
 
 export const fetchPage = (state, route) => {
   const contentFile = route.replace(/^\/|\/$/g, '')
-  fetch(`${ config.host }${config.basePath}/content/${ contentFile }.json`)
+  fetch(`${ context.host }${context.basePath}/content/${ contentFile }.json`)
     .then((response) => {
       return response.json()
     })

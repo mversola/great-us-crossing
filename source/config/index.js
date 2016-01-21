@@ -1,5 +1,7 @@
 const config = require('../../config/environment')
 
-const context = typeof window === 'undefined' ? 'server' : 'client'
+const runContext = typeof window === 'undefined' ? 'server' : 'client'
 
-module.exports = config[context]
+export default config
+
+export const context = config[runContext]
