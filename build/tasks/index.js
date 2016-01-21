@@ -131,7 +131,7 @@ gulp.task('revision', ['bundle:client-app', 'static-assets', 'content:prod'], ()
     .pipe(gulp.dest(DEST_DIR))
 })
 
-gulp.task('static', ['revreplace:server-app'], () => {
+gulp.task('static', ['revreplace:server-app', 'revreplace:assets'], () => {
   const routes = require('../../config/static-routes')
   const app    = require(path.join('../../', SERVER_APP_DIR, 'main.js')).default
 
@@ -197,4 +197,4 @@ gulp.task('serve', ['bundle:server-app'], devServer)
 
 gulp.task('dev', ['serve', 'watch'])
 
-gulp.task('build', ['revreplace:assets', 'static'])
+gulp.task('build', ['static'])
