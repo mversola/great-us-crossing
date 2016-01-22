@@ -1,5 +1,5 @@
 module.exports = [
   '/',
   '/build',
-  '/assets'
+  '/build/assets'
 ]
