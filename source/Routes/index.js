@@ -15,7 +15,7 @@ const isFailed = ({ status }) =>
   status === 'failed'
 
 const handlePageEnter = (nextState, replace, callback) => {
-  const route = (nextState.params.path || '').replace(/\/$/, '') || '/'
+  const route = (nextState.params.splat || '').replace(/\/$/, '') || '/'
   const unsubscribe = store.subscribe(() => {
     const state = store.getState()
     if (isFetched(state.pages[route])) {
@@ -38,7 +38,7 @@ export default (
       onEnter={ handlePageEnter }
     />
     <Route
-      path=":path"
+      path="*"
       component={ SimplePage }
       onEnter={ handlePageEnter }
     />

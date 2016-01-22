@@ -6,7 +6,7 @@ import styles from './styles.css'
 export default connect(
   ({ pages }) => ({ pages })
 )(({ pages, params }) => {
-  const page = pages[params.path || '/'] || {}
+  const page = pages[params.splat || '/'] || {}
   const { content } = page
 
   if (!content) {

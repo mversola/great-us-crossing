@@ -21,7 +21,7 @@ const createPage = (path, title = '', body = '') => ({
   }
 })
 
-const setUp = (initialState = { pages: {} }, props = { params: { path: '' } }) => {
+const setUp = (initialState = { pages: {} }, props = { params: { splat: '' } }) => {
   const store = configureStore(initialState)
   const component = (
     <Provider store={ store }>
@@ -40,12 +40,12 @@ const setUp = (initialState = { pages: {} }, props = { params: { path: '' } }) =
 describe('SimplePage', () => {
   jsdom()
 
-  describe('props.params.path', () => {
+  describe('props.params.splat', () => {
     context('is absent', () => {
       it('renders the \'/\' page content', () => {
         const state = createPage('/', 'HOME!')
         const props = {
-          params: { path: '' }
+          params: { splat: '' }
         }
         const { header } = setUp(state, props)
         expect(header.find('h1')).to.contain.text('HOME!')
@@ -53,12 +53,12 @@ describe('SimplePage', () => {
     })
   })
 
-  describe('state.pages[props.params.path].content', () => {
+  describe('state.pages[props.params.splat].content', () => {
     context('is present', () => {
       it('renders the title attribute within the header element', () => {
         const state = createPage('dogs', 'DOGS!')
         const props = {
-          params: { path: 'dogs' }
+          params: { splat: 'dogs' }
         }
         const { header } = setUp(state, props)
         expect(header.find('h1')).to.contain.text('DOGS!')
@@ -67,7 +67,7 @@ describe('SimplePage', () => {
       it('renders the body attribute within the section element', () => {
         const state = createPage('dogs', '', 'Are great')
         const props = {
-          params: { path: 'dogs' }
+          params: { splat: 'dogs' }
         }
         const { section } = setUp(state, props)
         expect(section.find('div')).to.contain.text('Are great')
@@ -76,7 +76,7 @@ describe('SimplePage', () => {
 
     context('is absent', () => {
       it('renders a 404 message', () => {
-        const { section, header } = setUp({ pages: {}}, { params: { path: '' }})
+        const { section, header } = setUp({ pages: {}}, { params: { splat: '' }})
 
         expect(header.find('h1')).to.contain.text('404')
         expect(section.find('div')).to.contain.text('Whoops!')
