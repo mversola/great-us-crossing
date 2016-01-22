@@ -7,10 +7,10 @@ import store from '../../'
 import receivePageSuccess from '../receivePageSuccess'
 import receivePageFailure from '../receivePageFailure'
 
-export default (route) => {
-  const contentFile = route.replace(/^\/|\/$/g, '')
+export default (route = '/') => {
+  const contentPath = `/${ route.replace(/^\/|\/$/g, '')}`
 
-  fetch(`${ context.host }${context.basePath}/content/${ contentFile }.json`)
+  fetch(`${ context.host }${context.basePath}/content${ contentPath }/index.json`)
     .then((response) => {
       return response.json()
     })

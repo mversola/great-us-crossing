@@ -40,6 +40,19 @@ const setUp = (initialState = { pages: {} }, props = { params: { path: '' } }) =
 describe('SimplePage', () => {
   jsdom()
 
+  describe('props.params.path', () => {
+    context('is absent', () => {
+      it('renders the \'/\' page content', () => {
+        const state = createPage('/', 'HOME!')
+        const props = {
+          params: { path: '' }
+        }
+        const { header } = setUp(state, props)
+        expect(header.find('h1')).to.contain.text('HOME!')
+      })
+    })
+  })
+
   describe('state.pages[props.params.path].content', () => {
     context('is present', () => {
       it('renders the title attribute within the header element', () => {

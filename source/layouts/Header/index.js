@@ -7,7 +7,6 @@ export default (props) => (
     <h1>{ props.title }</h1>
     <div>
       <Link to={ `${ config.client.basePath }/` }>Index</Link>
-      <Link to={ `${ config.client.basePath }/about` }>About</Link>
     </div>
   </header>
 )
