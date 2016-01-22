@@ -11,6 +11,9 @@ export default (props) => (
           <Link to={ `${ config.client.basePath }/` }>Home</Link>
         </li>
         <li>
+          <Link to={ `${ config.client.basePath }/deploying` }>Deploying</Link>
+        </li>
+        <li>
           <Link to={ `${ config.client.basePath }/build` }>Building</Link>
           <ul>
             <li>
