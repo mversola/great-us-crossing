@@ -15,7 +15,7 @@
     "build:prod": "npm run build:setup && NODE_ENV=production gulp build",
     "build:staging": "npm run build:setup && NODE_ENV=staging gulp build",
     "dev": "gulp dev",
-    "test": "mocha --compilers js:babel-register,css:css-modules-require-hook --recursive source/**/__test__/*-test.js",
+    "test": "mocha --compilers js:babel-register,css:css-modules-require-hook --recursive source/**/__tests__/*-test.js",
     "deploy:staging": "npm run build:staging && gh-pages -d dist"
   },
   "babel": {
@@ -57,9 +57,11 @@
     "browserify": "^12.0.1",
     "browserify-incremental": "^3.0.1",
     "chai": "^3.4.1",
+    "chai-enzyme": "^0.2.2",
     "css-modules-require-hook": "^2.1.0",
     "css-modulesify": "^0.16.1",
     "envify": "^3.4.0",
+    "enzyme": "^1.4.0",
     "express": "^4.13.3",
     "gh-pages": "^0.8.0",
     "gulp": "^3.9.0",

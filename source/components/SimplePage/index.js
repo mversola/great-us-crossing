@@ -6,7 +6,19 @@ import styles from './styles.css'
 export default connect(
   ({ pages }) => ({ pages })
 )(({ pages, params }) => {
-  const { content } = pages[params.path]
+  const page = pages[params.path] || {}
+  const { content } = page
+
+  if (!content) {
+    return (
+      <Main title="404">
+        <section className={ styles.SimplePage }>
+          <div>Whoops!</div>
+        </section>
+      </Main>
+    )
+  }
+
   const { title, body } = content
 
   return (
