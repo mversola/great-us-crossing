@@ -42,7 +42,7 @@ describe('SimplePage', () => {
 
   describe('state.pages[props.params.path].content', () => {
     context('is present', () => {
-      it('renders the title attribute the header element', () => {
+      it('renders the title attribute within the header element', () => {
         const state = createPage('dogs', 'DOGS!')
         const props = {
           params: { path: 'dogs' }
@@ -51,7 +51,7 @@ describe('SimplePage', () => {
         expect(header.find('h1')).to.contain.text('DOGS!')
       })
 
-      it('renders the body attribute the section element', () => {
+      it('renders the body attribute within the section element', () => {
         const state = createPage('dogs', '', 'Are great')
         const props = {
           params: { path: 'dogs' }
