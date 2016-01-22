@@ -1,4 +1,4 @@
 import { createStore } from 'redux'
-import reducer from './reducer'
+import reducers from './reducers'
 
-export default createStore(reducer)
+export default createStore(reducers)

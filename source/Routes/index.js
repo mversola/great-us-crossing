@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
 import store from '../store'
+import fetchPage from '../store/actions/fetchPage'
 
 import Home from '../pages/Home'
 import SimplePage from '../components/SimplePage'
@@ -26,10 +27,7 @@ const handlePageEnter = (nextState, replace, callback) => {
       unsubscribe()
     }
   })
-  store.dispatch({
-    type: 'FETCH_PAGE',
-    route
-  })
+  fetchPage(route)
 }
 
 export default (
