@@ -6,7 +6,7 @@ steps:
   - wait
 
   - name: ":nodejs: Build It"
-    command: "npm install && npm run build"
+    command: "npm install && npm run build:prod"
     artifact_paths: "dist/**/*"
 
   - wait
