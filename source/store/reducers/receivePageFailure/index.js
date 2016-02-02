@@ -1,7 +1,7 @@
-const { assign } = Object
+import { merge } from 'lodash/object'
 
 export default (state, { route, error }) => {
-  return assign({}, state, {
+  return merge({}, state, {
     pages: {
       ...state.pages,
       [route]: {

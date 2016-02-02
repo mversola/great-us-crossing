@@ -13,6 +13,8 @@ export default ({ content }) => (
           __html: content
         }}
       />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.2/es5-shim.min.js" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.2/es5-sham.min.js" />
       <script src="/main.js" />
     </body>
   </html>
