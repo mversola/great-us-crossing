@@ -1,7 +1,7 @@
 const config = {
   "staging": {
     "server": {
-      "host": "http://localhost:8080",
+      "host": "http://lvh.me:8080",
       "basePath": ""
     },
     "client": {
@@ -11,7 +11,7 @@ const config = {
   },
   "production": {
     "server": {
-      "host": "http://localhost:8080",
+      "host": "http://lvh.me:8080",
       "basePath": ""
     },
     "client": {
@@ -21,11 +21,11 @@ const config = {
   },
   "development": {
     "server": {
-      "host": "http://localhost:8080",
+      "host": "http://lvh.me:8080",
       "basePath": ""
     },
     "client": {
-      "host": "http://localhost:8080",
+      "host": "http://lvh.me:8080",
       "basePath": ""
     }
   }

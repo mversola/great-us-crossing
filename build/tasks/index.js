@@ -1,5 +1,6 @@
 const babelify = require('babelify')
 const envify = require('envify/custom')
+const es3ify = require('es3ify')
 const browserifyinc = require('browserify-incremental')
 const buffer = require('vinyl-buffer')
 const cssModulesify = require('css-modulesify')
@@ -22,7 +23,7 @@ const SERVER_APP_DIR = '.server'
 
 const BROWSERIFY_OPTS = {
   entries: [path.join(SOURCE_DIR, 'index.js')],
-  transform: [babelify],
+  transform: [babelify, es3ify],
   standalone: 'app',
   debug: true
 }

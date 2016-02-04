@@ -1,3 +1,4 @@
+import es6Promise from 'es6-promise'
 import 'isomorphic-fetch'
 
 import { context } from '../../../config'
@@ -6,6 +7,10 @@ import store from '../../'
 
 import receivePageSuccess from '../receivePageSuccess'
 import receivePageFailure from '../receivePageFailure'
+
+if (typeof Promise === 'undefined') {
+  es6Promise.polyfill()
+}
 
 export default (route = '/') => {
   const contentPath = `/${ route.replace(/^\/|\/$/g, '')}`
