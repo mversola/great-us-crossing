@@ -9,7 +9,7 @@ const fetchPage = (pages, { route }) => {
   })
 }
 
-const receivePageFailure = (pages, { route, error }) => {
+const receivePageFailure = (pages, { route, error = '' }) => {
   return merge({}, pages, {
     ...pages,
     [route]: {
@@ -19,12 +19,12 @@ const receivePageFailure = (pages, { route, error }) => {
   })
 }
 
-const receivePageSuccess = (pages, { route, content }) => {
+const receivePageSuccess = (pages, { route, content = '' }) => {
   return merge({}, pages, {
     ...pages,
     [route]: {
       status: 'fetched',
-      content: content
+      content
     }
   })
 }
