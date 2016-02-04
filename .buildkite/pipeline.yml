@@ -5,8 +5,13 @@ env:
 steps:
   - wait
 
+  - name: "Test It"
+    command: "npm install && npm test"
+
+  - wait
+
   - name: ":nodejs: Build It"
-    command: "npm install && npm run build:prod"
+    command: "npm run build:prod"
     artifact_paths: "dist/**/*"
 
   - wait
