@@ -1,18 +1,6 @@
+import { combineReducers } from 'redux'
+
 import store from '../'
+import pages from './pages'
 
-import fetchPage from './fetchPage'
-import receivePageFailure from './receivePageFailure'
-import receivePageSuccess from './receivePageSuccess'
-
-export default (state = { pages: {} }, action) => {
-  switch (action.type) {
-    case 'FETCH_PAGE':
-      return fetchPage(state, action)
-    case 'RECEIVE_PAGE_FAILURE':
-      return receivePageFailure(state, action)
-    case 'RECEIVE_PAGE_SUCCESS':
-      return receivePageSuccess(state, action)
-    default:
-      return state
-  }
-}
+export default combineReducers({ pages })
