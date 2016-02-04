@@ -3,7 +3,7 @@ import { Route, IndexRoute } from 'react-router'
 
 import { context } from '../config'
 
-import SimpleContent, { fetchContent } from '../components/SimpleContent'
+import SimpleContent, { fetchContent } from './SimpleContent'
 
 export default (
   <Route
