@@ -9,6 +9,7 @@ const gutil = require('gulp-util')
 const path = require('path')
 const rev = require('gulp-rev')
 const revReplace = require('gulp-rev-replace')
+const sass = require('gulp-sass')
 const source = require('vinyl-source-stream')
 const markdown = require('gulp-markdown-to-json')
 
@@ -99,6 +100,12 @@ const STATIC_ASSETS = [].concat(IMAGES).map(
   (asset) => path.join(SOURCE_DIR, asset)
 )
 
+gulp.task('sass', function () {
+  gulp.src(path.join(SOURCE_DIR, '**/*.scss'))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest(DEV_DIR));
+})
+
 gulp.task('static-assets', () => {
   return gulp.src(STATIC_ASSETS)
     .pipe(gulp.dest(DEV_DIR))
@@ -124,7 +131,7 @@ const REVABLE = [].concat(JS, CSS, IMAGES).map(
   asset => path.join(DEV_DIR, asset)
 )
 
-gulp.task('revision', ['bundle:client-app', 'static-assets', 'content:prod'], () => {
+gulp.task('revision', ['bundle:client-app', 'sass', 'static-assets', 'content:prod'], () => {
   return gulp.src(REVABLE)
     .pipe(rev())
     .pipe(gulp.dest(DEST_DIR))
@@ -190,8 +197,14 @@ gulp.task('watch:static-assets', ['static-assets'], () => {
   })
 })
 
+gulp.task('watch:sass', ['sass'], function () {
+  gulp.watch(path.join(SOURCE_DIR, '**/*.scss'), () => {
+    return gulp.start('sass')
+  })
+})
+
 gulp.task('watch', () => {
-  gulp.start(['watch:static-assets', 'watch:bundle', 'watch:content'])
+  gulp.start(['watch:static-assets', 'watch:bundle', 'watch:content', 'watch:sass'])
 })
 
 gulp.task('serve', ['bundle:server-app'], devServer)
