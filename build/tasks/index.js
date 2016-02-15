@@ -12,7 +12,7 @@ const revReplace = require('gulp-rev-replace')
 const sass = require('gulp-sass')
 const source = require('vinyl-source-stream')
 const markdown = require('gulp-markdown-to-json')
-
+const cssNext = require('postcss-cssnext')
 const buildStatic = require('../build-static')
 const devServer = require('../server')
 
@@ -31,7 +31,8 @@ const BROWSERIFY_OPTS = {
 
 const CSS_MODULES_OPTS = {
   output: path.join(DEV_DIR, 'main.css'),
-  generateScopedName: require('../css-modules-scope-generator')
+  generateScopedName: require('../css-modules-scope-generator'),
+  after: [cssNext]
 }
 
 const clientBundler = browserifyinc(Object.assign({}, BROWSERIFY_OPTS, {
