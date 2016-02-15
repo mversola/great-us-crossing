@@ -1,3 +1,5 @@
+'use strict'
+
 import es6Promise from 'es6-promise'
 import 'isomorphic-fetch'
 
@@ -12,10 +14,16 @@ if (typeof Promise === 'undefined') {
   es6Promise.polyfill()
 }
 
+const isClientDev = (
+  typeof window !== 'undefined' &&
+  (!process.env.NODE_ENV || (process.env.NODE_ENV === 'development'))
+)
+let host = isClientDev ? location.origin : context.host
+
 export default (route = '/') => {
   const contentPath = `/${ route.replace(/^\/|\/$/g, '')}`
 
-  fetch(`${ context.host }${context.basePath}/content${ contentPath }/index.json`)
+  fetch(`${ host }${context.basePath}/content${ contentPath }/index.json`)
     .then((response) => {
       return response.json()
     })
@@ -23,7 +31,6 @@ export default (route = '/') => {
       receivePageSuccess(route, json)
     })
     .catch((err) => {
-      console.log(err)
       receivePageFailure(route, error)
     })
 
