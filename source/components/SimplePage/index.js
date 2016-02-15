@@ -5,7 +5,7 @@ import styles from './styles.css'
 
 export default ({ title, body }) => (
   <Main title={ title }>
-    <section className={ styles.SimpleContent }>
+    <section className={ styles.base }>
       <div dangerouslySetInnerHTML={{
         __html: body
       }} />
