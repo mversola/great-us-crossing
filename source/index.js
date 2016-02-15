@@ -1,3 +1,4 @@
+import DocumentTitle from 'react-document-title'
 import React from 'react'
 import Router, { match, RoutingContext } from 'react-router'
 import { Provider } from 'react-redux'
@@ -31,14 +32,15 @@ export default function staticRender (route, callback) {
         if (error) {
           return callback(error)
         }
-        const content = '<!DOCTYPE html>' + renderToStaticMarkup(
-          <Document content={ renderToString(
-            <Provider store={store}>
-              <RoutingContext { ...renderProps } />
-            </Provider>
-          ) } />
+        const content = renderToString(
+          <Provider store={store}>
+            <RoutingContext { ...renderProps } />
+          </Provider>
         )
-        callback(null, content)
+        const document = '<!DOCTYPE html>' + renderToStaticMarkup(
+          <Document title={ DocumentTitle.rewind() } content={ content } />
+        )
+        callback(null, document)
       }
     )
   } catch (error) {
