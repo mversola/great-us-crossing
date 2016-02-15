@@ -1,8 +1,12 @@
 const gulp = require('gulp')
 const path = require('path')
 
+const browserSync = require('browser-sync').create()
+
 const bundle = require('./bundle')
-gulp.task('bundle:client-app', bundle.client)
+gulp.task('bundle:client-app', () => {
+  return bundle.client().on('end', browserSync.reload)
+})
 gulp.task('bundle:server-app', bundle.server)
 
 const scss = require('./scss')
@@ -25,7 +29,7 @@ gulp.task('revreplace:server-bundle', ['revision', 'bundle:server-app'], replace
 const generateStatic = require('./generate-static')
 gulp.task('generate-static', ['revreplace:server-bundle', 'revreplace:assets'], generateStatic)
 
-const serve = require('./serve')
+const serve = require('./serve')(browserSync)
 gulp.task('serve', ['bundle:server-app'], serve)
 
 const config = require('./config')
@@ -43,32 +47,32 @@ const STATIC_ASSETS = [].concat(IMAGES).map(
 )
 
 gulp.task('watch:bundle', ['bundle:client-app', 'bundle:server-app'], () => {
-  return gulp.watch(BUNDLEABLE_ASSETS, () => {
-    gulp.start(['bundle:client-app', 'bundle:server-app'])
-  })
+  return gulp.watch(BUNDLEABLE_ASSETS, ['bundle:client-app', 'bundle:server-app'])
 })
 
 gulp.task('watch:content', ['content:dev'], () => {
-  return gulp.watch(path.join(SOURCE_DIR, 'content/**/*.md'), () => {
-    return gulp.start('content:dev')
-  })
+  return gulp.watch(path.join(SOURCE_DIR, 'content/**/*.md'), ['content:dev'])
 })
 
-gulp.task('watch:sass', ['sass'], function () {
-  gulp.watch(path.join(SOURCE_DIR, '**/*.scss'), () => {
-    return gulp.start('sass')
-  })
+gulp.task('watch:sass', ['sass'], () => {
+  return gulp.watch(path.join(SOURCE_DIR, '**/*.scss'), ['sass'])
 })
 
 gulp.task('watch:static-assets', ['static-assets'], () => {
-  return gulp.watch(STATIC_ASSETS, () => {
-    return gulp.start('static-assets')
-  })
+  return gulp.watch(STATIC_ASSETS, ['static-assets'])
 })
 
-gulp.task('watch', () => {
-  gulp.start(['watch:static-assets', 'watch:bundle', 'watch:content', 'watch:sass'])
-})
+gulp.task('watch', [
+  'watch:static-assets',
+  'watch:bundle',
+  'watch:content',
+  'watch:sass'
+])
 
-gulp.task('dev', ['serve', 'watch'])
-gulp.task('build', ['generate-static'])
+gulp.task('dev', [
+  'serve', 'watch'
+])
+
+gulp.task('build', [
+  'generate-static'
+])

@@ -1,6 +1,5 @@
 const babelify = require('babelify')
 const browserifyinc = require('browserify-incremental')
-const browserSync = require('browser-sync').create()
 const buffer = require('vinyl-buffer')
 const cssModulesify = require('css-modulesify')
 const cssNext = require('postcss-cssnext')
@@ -52,17 +51,24 @@ const serverBundler = browserifyinc(Object.assign({}, BROWSERIFY_OPTS, {
 }))
 serverBundler.plugin(cssModulesify, CSS_MODULES_OPTS)
 
-const bundle = (bundler, outputDir) => () =>
-  bundler
-    .bundle()
-    .on('error', function (err) {
-      gutil.log(gutil.colors.red(err))
-      this.emit('end')
-    })
+const bundle = (bundler, outputDir) => () => {
+  const bundleStream = bundler.bundle()
+
+  if (!process.env.NODE_ENV || (process.env.NODE_ENV === 'development')) {
+    bundleStream
+      .on('error', function (err) {
+        gutil.log(gutil.colors.red(err))
+        this.emit('end')
+      })
+  }
+
+  bundleStream
     .pipe(source('main.js'))
     .pipe(buffer())
     .pipe(gulp.dest(outputDir))
-    .on('end', browserSync.reload)
+
+  return bundleStream
+}
 
 clientBundler.on('log', gutil.log)
 serverBundler.on('log', gutil.log)
