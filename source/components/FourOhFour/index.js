@@ -1,3 +1,4 @@
+import DocumentTitle from 'react-document-title'
 import React from 'react'
 
 import Main from '../../layouts/Main'
