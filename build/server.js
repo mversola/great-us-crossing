@@ -24,5 +24,5 @@ routes.forEach((route) => {
   })
 })
 
-module.exports = () =>
-  http.createServer(server).listen(8080)
+module.exports = (callback) =>
+  http.createServer(server).listen(8080, callback)
