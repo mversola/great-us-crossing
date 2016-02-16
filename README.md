@@ -69,7 +69,7 @@ Let's say you want to add a new simple page. No bells or whistles, no params fro
 Then add a link to the path in your nav menu: `source/layouts/Header/index.js`
 
 ```
-<Link href=`${ context.basePath }/hello`>Hello!</Link>
+<NavLink to="/hello">Hello!</NavLink>
 ```
 
 You should be able to go to http://lvh.me:8080, click your link, and see "Hello!" proudly rendered (and nothing else!).
@@ -90,8 +90,8 @@ Here the `params` prop being passed to your component is provided by react-route
 Change the link you added to your nav menu in `source/layouts/Header/index.js`
 
 ```
-<Link href=`${ context.basePath }/hello/there`>Hello, there!</Link>
-                                       ^^^^^^
+<NavLink to="/hello/there">Hello, there!</NavLink>
+                   ^^^^^^
 ```
 
 Save and visit http://lvh.me:8080, click your link, and you should see "Hello, there!" rendered as the content.
@@ -191,7 +191,7 @@ Yep, that's **markdown**
 Then add a link to the path in your nav menu: `source/layouts/Header/index.js`
 
 ```
-<Link href=`${ context.basePath }/a-new-page`>A new page</Link>
+<NavLink to="/a-new-page">A new page</NavLink>
 ```
 
 Then you should be able to visit http://lvh.me:8080, click on your link and be taken to a page displaying your markdown content as HTML.
