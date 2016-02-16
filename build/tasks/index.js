@@ -4,10 +4,9 @@ const path = require('path')
 const browserSync = require('browser-sync').create()
 
 const bundle = require('./bundle')
-gulp.task('bundle:client-app', () => {
-  return bundle.client().on('end', browserSync.reload)
-})
+gulp.task('bundle:client-app', bundle.client)
 gulp.task('bundle:server-app', bundle.server)
+gulp.task('bundle:all', ['bundle:client-app', 'bundle:server-app'])
 
 const scss = require('./scss')
 gulp.task('sass', scss)
@@ -17,14 +16,14 @@ gulp.task('content:dev', content.dev)
 gulp.task('content:prod', content.prod)
 
 const revision = require('./revision')
-gulp.task('revision', ['bundle:client-app', 'sass', 'static-assets', 'content:prod'], revision)
+gulp.task('revision', ['bundle:all', 'sass', 'static-assets', 'content:prod'], revision)
 
 const staticAssets = require('./static-assets')
 gulp.task('static-assets', staticAssets)
 
 const replaceRevised = require('./replace-revised-paths')
 gulp.task('revreplace:assets', ['revision'], replaceRevised.assets)
-gulp.task('revreplace:server-bundle', ['revision', 'bundle:server-app'], replaceRevised.serverBundle)
+gulp.task('revreplace:server-bundle', ['revision'], replaceRevised.serverBundle)
 
 const generateStatic = require('./generate-static')
 gulp.task('generate-static', ['revreplace:server-bundle', 'revreplace:assets'], generateStatic)

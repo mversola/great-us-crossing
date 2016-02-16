@@ -62,12 +62,10 @@ const bundle = (bundler, outputDir) => () => {
       })
   }
 
-  bundleStream
+  return bundleStream
     .pipe(source('main.js'))
     .pipe(buffer())
     .pipe(gulp.dest(outputDir))
-
-  return bundleStream
 }
 
 clientBundler.on('log', gutil.log)
