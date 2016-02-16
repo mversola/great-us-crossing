@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
-import config from '../../../config/environment'
+import NavLink from '../../components/NavLink'
 
 export default (props) => (
   <header>
@@ -8,16 +7,16 @@ export default (props) => (
     <div>
       <ul>
         <li>
-          <Link to={ `${ config.client.basePath }/` }>Home</Link>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <Link to={ `${ config.client.basePath }/deploying` }>Deploying</Link>
+          <NavLink to="/deploying">Deploying</NavLink>
         </li>
         <li>
-          <Link to={ `${ config.client.basePath }/build` }>Building</Link>
+          <NavLink to="/build">Building</NavLink>
           <ul>
             <li>
-              <Link to={ `${ config.client.basePath }/build/assets` }>Assets</Link>
+              <NavLink to="/build/assets">Assets</NavLink>
             </li>
           </ul>
         </li>
