@@ -1,4 +1,4 @@
-# Great Southern Crossing
+# Great US Crossing
 Website for Great US Crossing
 
 ## Get Started
