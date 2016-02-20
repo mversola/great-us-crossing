@@ -1,0 +1,423 @@
+/* Main Elements */
+* { 
+	font-family: "Open Sans", sans-serif; 
+}    
+h1 {
+	font-weight: light;
+}
+h2 {
+	color: #bb1c3f;
+	font-weight: lighter !important;
+}
+h3 {
+	font-weight: bold;
+}
+p {
+	font-weight: normal;
+}
+.btn {
+	text-transform: uppercase;
+	color: #fff;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 0px;
+	background: transparent;
+	border: 1px #fff solid;
+	border-radius: 0px;
+}
+.btn:hover {
+	color: #fff;
+}
+.container-fluid, .row {
+	margin: 0px !important;
+}
+
+
+/* Top Register Bar */
+#top-register-bar img {
+	height: 40px;
+	display: inline-block;
+}
+#top-register-bar span {
+	color: #003167;
+	float: right; 
+	height: 40px; 
+	line-height: 40px;
+}
+#top-registration-bar a, #top-registration-bar:hover {
+	color: #003167;
+}
+
+
+/* Header */
+#page-header * {
+	color: #fff;
+}
+#page-header {
+	padding-bottom: 30px;
+	padding-top: -20px;
+	height: auto;
+	color: #fff;
+}
+#page-header #slogan {
+	font-weight: normal;
+	font-size: 15pt;
+	color: #fff;
+}
+#page-header .btn {
+	width: 200px;
+	margin-top: 30px;
+}
+#page-header #logo {
+	display: inline-block;
+	width: 40%;
+}
+
+
+/* Top Main Menu */
+#top-icon-slider * {
+	color: #fff;
+}
+#top-icon-slider {
+   	background: #003167; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#00689f, #003167); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#00689f, #003167); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#00689f, #003167); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#00689f, #003167); /* Standard syntax */
+	color: #fff;
+	font-size: 7pt;
+}
+#top-icon-slider div div {
+	padding-bottom: 20px;
+}
+#top-icon-slider img {
+	width: 70px;
+	height: 70px;
+	margin-bottom: -10px;
+}
+#top-icon-slider a {
+	color: #fff;
+}
+#top-icon-slider a:hover {
+	color: #fff;
+}
+.left-button-link {
+	border-right: 1px #fff solid;
+	
+}
+.arrow-icon img {
+	margin-top: 20px;
+	width: 40px !important;
+	height: 40px !important;
+	border: none;
+	display: inline-block;
+}
+
+
+/* About */
+#about-box, #steps-box, #prizes-box, #map-box, #charities-box {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+/* Map */
+#map-box h2 {
+	color: #fff;
+}
+#map-box {
+   	background-image: url(../img/backgrounds/greatuscrossing_map_bg.png);
+	background-size: 100% 100%;
+	color: #fff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+#map-image {
+	width: 100%;
+}
+#start-box, #finish-box {
+	font-size: 8pt;
+	margin-top: -30px;
+	margin-left: 50px;
+}
+
+
+/* Charities */
+#charities-box {
+   	background-image: url(../img/backgrounds/greatuscrossing_charities_bg.png);
+	background-size: 100% 100%;
+	color: #fff;
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+#charities-box h2 {
+	color: #fff;
+}
+#charities-box .btn {
+	width: 20%;
+	margin: 15px;
+	padding: 15px;
+}
+#charities-box { 
+	padding-bottom: 40px;
+}
+.charity-span {
+	background: #fff;
+	border: 1px #000 solid;
+	width: 120px;
+	height: 120px;
+	margin-bottom: 10px;
+	display: inline-block;
+	margin: 6px;
+}
+
+
+/* Counter Bar */
+#countdown-box {
+   	background: rgb(236,236,236); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(rgb(236,236,236), rgb(150,150,150)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgb(236,236,236), rgb(150,150,150)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgb(236,236,236), rgb(150,150,150)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgb(236,236,236), rgb(150,150,150)); /* Standard syntax */
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #003167;
+}
+#countdown-box span {
+	width: 150px;
+	display: inline-block;
+	margin-top: 2px;
+}
+#countdown-box #days-box {
+	border-right: 1px #000 solid;
+}
+
+
+/* Steps */
+#steps-icons {
+	padding: 0px !important;
+	margin: 0px !important;
+	margin-bottom: 30px !important;
+}
+#steps-icons img {
+	width: 100%;
+}
+#steps-box .blue, #steps-box strong {
+	color: #003167;
+}
+.step-box {
+	margin: 15px;
+	width: 25%;
+	display: inline-block;
+}
+#steps-vertical {
+}
+
+/* Last Joined */
+#last-joined-box {
+	height: 50px;
+	position: relative;
+	margin-bottom: 5px;
+	z-index: 2;
+	color: #003167;
+}
+#last-joined-box div div {
+}
+#last-joined-box img, #last-joined-box p {
+	display: inline-block;
+	height: 50px;
+	line-height: 50px;
+}
+#last-joined-box img {
+	border-right: 1px #003167 solid;
+	height: 30px;
+	padding-right: 20px;
+	margin-right: 20px;
+}
+
+
+/* Footer */
+#footer-box {
+	background-image: url(../img/backgrounds/greatuscrossing_footer_bg.png);
+	background-size: 100% 100%;
+	color: #fff;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+#footer-box a {
+	color: #fff;
+	font-size: .7em;
+}
+#footer-box a:hover {
+	color: #fff;
+}
+
+
+/* Social Media */
+.social-span {
+	margin: 15px;
+	width: 40px;
+	height: 40px;
+	border: 1px #000 solid;
+	display: inline-block;
+}
+
+
+/* Cross With Us */
+#crosswithus-box, #last-joined-box, #steps-box {
+	background: rgb(236,236,236);
+}
+#crosswithus-box div {
+	margin: 0px; 
+	padding: 0px;
+}
+#crosswithus-box div div {
+	border: 1px #000 solid;
+	background-color: #fff;
+	height: 150px;
+	margin: 2px;
+}
+#crosswithus-box {
+	height: auto;
+	margin-bottom: 30px;
+}
+
+
+/* Prizes */
+#prizes-box img {
+	width: 100%;
+}
+#prizes-box h2 {
+	color: #bb1c3f;
+}
+
+
+/* Register Bottom */
+#register-bottom {
+   	background: #003167; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#00689f, #003167); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#00689f, #003167); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#00689f, #003167); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#00689f, #003167); /* Standard syntax */
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+#register-bottom .btn {
+	width: 40%;
+	padding: 15px;
+	border: 1px #fff solid;
+	background: transparent;
+	color: #fff;
+}
+
+/* Bar */
+#break-bar {
+	height: 15px;
+	background: url(img/backgrounds/greatuscrossing_map_bg.png);
+}
+
+/* Tablet Formatting */
+@media (max-width: 1000px) {
+	.arrow-icon {
+		margin-top: 10px;
+	}
+	.step-box {
+		width: 100%;
+		margin: 5px;
+		margin-top: 30px !important;
+	}
+	#page-header {
+		background-image: url(../img/backgrounds/greatuscrossing_mobile_header_bg.png);
+		background-size: 100% 100%;
+		height: auto;
+		text-align: center;
+	}
+	#page-header #logo {
+		display: block;
+		margin: 0px;
+		padding: 0px;
+		margin-top: -50px;
+		width: 70% !important;
+	}
+	#top-icon-slider img {
+		width: 80%;
+		height: auto;
+		margin-bottom: -10px;
+	}
+	#top-icon-slider #trophy-link {
+	}
+	#start-box, #finish-box {
+		font-size: medium;
+		margin: 0px;
+		margin-top: 0px;
+	}
+	#map-image {
+	}
+	#prizes-box img {
+		width: 50%;
+	}
+	#countdown-box span {
+		width: 20%;
+		display: inline-block;
+		margin-top: 2px;
+	}
+	.charity-span {
+		width: 30%;
+		height: 200px;
+	}
+}
+
+/* Mobile Formatting */
+@media (max-width: 485px) {
+	.step-box {
+		width: 100%;
+		margin: 5px;
+		margin-top: 30px !important;
+	}
+	#page-header {
+		height: auto;
+		text-align: center;
+		background-image: url(../img/backgrounds/greatuscrossing_mobile_header_bg.png);
+		background-size: 100% 100%;
+	}
+	#page-header #logo {
+		display: block;
+		margin: 0px;
+		padding: 0px;
+		margin-top: -20px;
+		width: 100% !important;
+	}
+	#top-icon-slider img {
+		width: 100%;
+		height: auto;
+		margin-bottom: -10px;
+	}
+	#top-icon-slider #trophy-link {
+		border-right: none;
+	}
+	#start-box, #finish-box {
+		font-size: medium;
+		margin: 0px;
+		margin-top: 0px;
+	}
+	#map-image {
+	}
+	#prizes-box img {
+		width: 50%;
+	}
+	#countdown-box span {
+		width: 20%;
+		display: inline-block;
+		margin-top: 2px;
+	}
+	.charity-span {
+		width: 30%;
+		height: 120px;
+	}
+	#left-arrow-link {
+		text-align: left;
+	}
+	#right-arrow-link {
+		text-align: right;
+	}
+}
+
