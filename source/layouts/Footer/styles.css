@@ -1,0 +1,22 @@
+.base {
+  text-align: center;
+  background: #00405f;
+  color: white;
+}
+
+.base a {
+  display: inline-block;
+  color: white;
+  margin-right: 0.5em;
+}
+
+.base a + a:before {
+  content: '| '
+}
+
+.base img {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  margin-top: 0;
+}

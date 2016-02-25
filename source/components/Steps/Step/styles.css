@@ -1,0 +1,19 @@
+.base {
+  font-size: 0.9em;
+  counter-increment: steps;
+  text-align: center;
+}
+
+.base * + * {
+  margin-top: 0;
+}
+
+.stepIndicator:before {
+  content: "Step " counter(steps);
+  text-transform: uppercase;
+}
+
+.image {
+  max-width: 12em;
+  margin-bottom: 1em;
+}

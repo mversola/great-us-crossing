@@ -1,27 +1,27 @@
 const config = {
   "staging": {
     "server": {
-      "host": "http://lvh.me:8080",
+      "host": "http://localhost:8080",
       "basePath": ""
     },
     "client": {
       "host": "http://everydayhero.github.io",
-      "basePath": "/boiler-room"
+      "basePath": "/great-us-crossing"
     }
   },
   "production": {
     "server": {
-      "host": "http://lvh.me:8080",
+      "host": "http://localhost:8080",
       "basePath": ""
     },
     "client": {
       "host": "http://everydayhero.github.io",
-      "basePath": "/boiler-room"
+      "basePath": "/great-us-crossing"
     }
   },
   "development": {
     "server": {
-      "host": "http://lvh.me:8080",
+      "host": "http://localhost:8080",
       "basePath": ""
     },
     "client": {

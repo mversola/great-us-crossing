@@ -1,0 +1,50 @@
+.base * + * {
+  margin-bottom: 0;
+  margin-top: 1.5em;
+}
+
+.base h1,
+.base h2,
+.base h3,
+.base h4 {
+  text-transform: uppercase;
+}
+
+.base h1,
+.base h2,
+.base h4 {
+  font-weight: 900;
+}
+
+.base h1,
+.base h2 {
+  line-height: 1em;
+}
+
+.base h1 {
+  font-size: 2em;
+  letter-spacing: 0.0125em;
+}
+
+.base h2 {
+  font-size: 1.5em;
+  letter-spacing: 0.025em;
+}
+
+.base h3 {
+  font-size: 1em;
+  line-height: 1.125em;
+  letter-spacing: normal;
+  font-weight: 300;
+}
+
+.base img {
+  width: 100%;
+  max-width: auto;
+}
+
+.default { composes: base; }
+.alignCenter {
+  composes: base;
+  text-align: center;
+}

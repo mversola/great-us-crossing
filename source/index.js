@@ -1,23 +1,30 @@
 import DocumentTitle from 'react-document-title'
 import React from 'react'
 import Router, { match, RoutingContext } from 'react-router'
-import { Provider } from 'react-redux'
 import { createHistory } from 'history'
 import { render } from 'react-dom'
 import { renderToString, renderToStaticMarkup } from 'react-dom/server'
 
 import Document from './layouts/Document'
 import Routes from './Routes'
-import store from './store'
 
-if (typeof document !== 'undefined') {
+if (typeof window !== 'undefined') {
+  const scrollToHash = () => {
+    if (window.location.hash) {
+      let target = document.querySelector(window.location.hash)
+      if (target) target.scrollIntoView()
+    }
+  }
+
   match(
     { routes: Routes, location },
     (error, redirectLocation, renderProps) => {
       render(
-        <Provider store={ store }>
-          <Router { ...renderProps } history={ createHistory() } />
-        </Provider>,
+        <Router
+          { ...renderProps }
+          history={ createHistory() }
+          onUpdate={ scrollToHash }
+        />,
         document.getElementById('mount')
       )
     }
@@ -33,9 +40,7 @@ export default function staticRender (route, callback) {
           return callback(error)
         }
         const content = renderToString(
-          <Provider store={store}>
-            <RoutingContext { ...renderProps } />
-          </Provider>
+          <RoutingContext { ...renderProps } />
         )
         const document = '<!DOCTYPE html>' + renderToStaticMarkup(
           <Document title={ DocumentTitle.rewind() } content={ content } />

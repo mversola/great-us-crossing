@@ -1,0 +1,13 @@
+.base {
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.base * + * {
+  margin-top: 0;
+}
+
+.image {
+  max-width: 12em;
+  margin-bottom: 1em;
+}

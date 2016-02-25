@@ -1,0 +1,19 @@
+.base {
+  position: relative;
+  text-align: center;
+  padding-top: 1.5em;
+  padding-bottom: 0;
+}
+
+.background {
+  composes: background from '../Section/styles.css';
+  background-color: #001e2c;
+}
+
+.content {
+  composes: base from '../TextContent/styles.css';
+  position: relative;
+  font-size: 1.5em;
+  font-size: 3.25vmin;
+  color: white;
+}

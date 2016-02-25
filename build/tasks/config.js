@@ -10,6 +10,7 @@ module.exports = {
     '**/*.css'
   ],
   IMAGES: [
+    '**/*.svg',
     '**/*.png',
     '**/*.jpg',
     '**/*.gif'

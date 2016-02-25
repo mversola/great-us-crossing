@@ -1,0 +1,16 @@
+.label,
+.number {
+  display: inline-block;
+}
+
+.number {
+  font-size: 2.5em;
+  font-weight: 900;
+  margin-right: 0.125em;
+}
+
+.label {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}

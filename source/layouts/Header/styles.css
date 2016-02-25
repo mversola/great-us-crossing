@@ -1,0 +1,13 @@
+.base {
+  font-size: 0.8em;
+  position: relative;
+  padding: 1em;
+}
+
+.logo {
+  width: 3em;
+}
+
+.userNav {
+  float: right;
+}

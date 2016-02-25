@@ -1,0 +1,24 @@
+.base {
+  appearance: none;
+  display: inline-block;
+  padding: 1.25em 1.75em;
+  border-radius: 0.125em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  line-height: 1em;
+  letter-spacing: 0.125em;
+}
+
+.default {
+  composes: base;
+  background-color: #4c80a5;
+  color:  white;
+}
+
+.outlineNegative {
+  composes: base;
+  background-color: transparent;
+  color:  white;
+  border: 0.125em solid white;
+}

@@ -7,7 +7,6 @@ import styles from './styles.css'
 
 export default (props) => (
   <article className={ styles.Main }>
-    <Header { ...props } />
     { props.children }
     <Footer { ...props } />
   </article>
