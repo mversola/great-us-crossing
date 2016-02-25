@@ -21,7 +21,7 @@ import styles from './styles.css'
 import route from '../../components/TourTracker/route.js'
 const parsedRoute = JSON.parse(route)
 
-const placeHolderCharities = Array.from({ length: 10 }).map((_, i) => (
+const placeHolderCharities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, i) => (
   <GridItem key={ i } divisions={['one-half', 'tablet-one-third', 'desktop-one-quarter']}>
     <div className={ styles.charityPlaceHolder } />
   </GridItem>
