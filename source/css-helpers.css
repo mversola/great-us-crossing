@@ -1,0 +1,14 @@
+.padding-loose   { padding: 2em; }
+.padding-default { padding: 1em; }
+.padding-tight   { padding: 0.5em; }
+.padding-none    { padding: 0; }
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: block;
+}
+
+.clearfix:after {
+  clear: both;
+}

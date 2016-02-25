@@ -1,0 +1,36 @@
+.base {
+  display: block;
+  box-sizing: content-box;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.base:before {
+  content: '';
+  display: block;
+}
+
+.standard { composes: base; }
+.icon { composes: base; }
+
+.standard:before { padding-bottom: 40%; }
+.icon:before { padding-bottom: 100%; }
+
+.positive {
+  composes: standard;
+  background-image: url('/components/Logo/positive.png');
+  background-image: url('/components/Logo/positive.svg');
+}
+
+.icon-positive {
+  composes: icon;
+  background-image: url('/components/Logo/icon-positive.png');
+  background-image: url('/components/Logo/icon-positive.svg');
+}
+
+.negative {
+  composes: standard;
+  background-image: url('/components/Logo/negative.png');
+  background-image: url('/components/Logo/negative.svg');
+}

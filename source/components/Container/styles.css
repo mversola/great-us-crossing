@@ -1,0 +1,16 @@
+.base {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.default {
+  composes: base;
+  padding: 3em 1.75em;
+  max-width: 46em;
+}
+
+.inner-two-thirds {
+  composes: base;
+  width: 66.667%;
+}
