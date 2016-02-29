@@ -45,7 +45,7 @@ export default () => (
       </CallToActionNavLink>
     </Hero>
 
-    <nav role="navigation">
+    <nav role="navigation" id="mainNavSection">
       <Container>
         <Grid spacing="none">
           <GridItem divisions={['one-quarter']}>
