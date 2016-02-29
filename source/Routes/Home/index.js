@@ -49,22 +49,22 @@ export default () => (
       <Container>
         <Grid spacing="none">
           <GridItem divisions={['one-quarter']}>
-            <NavLink to="/#about">
+            <NavLink to="/#about" image="/Routes/Home/greatuscrossing_bike.png">
               About
             </NavLink>
           </GridItem>
           <GridItem divisions={['one-quarter']}>
-            <NavLink to="/#route">
+            <NavLink to="/#route" image="/Routes/Home/greatuscrossing_pin.png">
               Route
             </NavLink>
           </GridItem>
           <GridItem divisions={['one-quarter']}>
-            <NavLink to="/#prizes">
+            <NavLink to="/#prizes" image="/Routes/Home/greatuscrossing_trophy.png">
               Prizes
             </NavLink>
           </GridItem>
           <GridItem divisions={['one-quarter']}>
-            <NavLink to="/#fundraising">
+            <NavLink to="/#fundraising" image="/Routes/Home/greatuscrossing_hands.png">
               Fundrasing
             </NavLink>
           </GridItem>
