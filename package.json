@@ -14,6 +14,7 @@
     "build:setup": "rm -rf .dev/* dist/* && mkdir -p dist .dev",
     "build:prod": "npm run build:setup && NODE_ENV=production gulp build",
     "build:staging": "npm run build:setup && NODE_ENV=staging gulp build",
+    "cleanup": "xargs rm -rf < .gitignore",
     "dev": "gulp dev",
     "test": "mocha --compilers js:babel-register,css:css-modules-require-hook --recursive source/**/__tests__/*-test.js",
     "deploy:staging": "npm run build:staging && gh-pages -d dist"

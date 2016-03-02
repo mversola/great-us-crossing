@@ -2,6 +2,7 @@
 env:
   BUILDKITE_DOCKER_COMPOSE_CONTAINER: build
   BUILDKITE_DOCKER_COMPOSE_FILE: docker-compose.buildkite.yml
+
 steps:
   - wait
 
@@ -11,11 +12,4 @@ steps:
   - wait
 
   - name: ":nodejs: Build It"
-    command: "npm run build:prod"
-    artifact_paths: "dist/**/*"
-
-  - wait
-
-  - name: ":shipit: Ship It"
-    command: "buildkite-agent artifact download 'dist/**/*' ."
-    branches: master
+    command: "npm install && npm run deploy:staging; npm run cleanup"
