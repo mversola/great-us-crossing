@@ -3,7 +3,7 @@
   text-align: center;
 }
 
-.base * + * {
+.base p {
   margin-top: 0;
 }
 
