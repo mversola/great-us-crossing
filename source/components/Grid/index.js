@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './styles.css'
+import { clearfix } from '../../css-helpers.css'
 
 class Grid extends React.Component {
   static childContextTypes = {
@@ -20,7 +21,7 @@ class Grid extends React.Component {
     const { spacing, children } = this.props
 
     return (
-      <div className={ styles[spacing] }>
+      <div className={ `${ clearfix } ${ styles[spacing] }` }>
         { children }
       </div>
     )

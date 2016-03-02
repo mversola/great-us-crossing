@@ -1,5 +1,6 @@
 import React from 'react'
 import Container from '../Container'
+import TextContent from '../TextContent'
 import styles from './styles.css'
 
 export default ({ background, children }) => (
@@ -9,7 +10,9 @@ export default ({ background, children }) => (
     </div>
     <Container>
       <div className={ styles.content }>
-        { children }
+        <TextContent>
+          { children }
+        </TextContent>
       </div>
     </Container>
   </header>
