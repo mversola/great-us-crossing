@@ -10,7 +10,16 @@
   height: 100%;
 }
 
+.default {
+  composes: base;
+}
+
+.default h2 {
+  color: #bb1c3f;
+}
+
 .darkBlue {
+  composes: base;
   background-color: #001e2c;
   color: white;
 }

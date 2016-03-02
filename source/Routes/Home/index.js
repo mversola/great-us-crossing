@@ -45,26 +45,30 @@ export default () => (
       </CallToActionNavLink>
     </Hero>
 
-    <nav role="navigation" id="mainNavSection">
+    <nav role="navigation" className={ styles.PageNav }>
       <Container>
         <Grid spacing="none">
           <GridItem divisions={['one-quarter']}>
-            <NavLink to="/#about" image="/Routes/Home/greatuscrossing_bike.png">
+            <NavLink to="/#about" className={ styles.PageNav__NavLink }>
+              <img className={ styles.PageNav__NavImage } src="/Routes/Home/greatuscrossing_bike.png" />
               About
             </NavLink>
           </GridItem>
           <GridItem divisions={['one-quarter']}>
-            <NavLink to="/#route" image="/Routes/Home/greatuscrossing_pin.png">
+            <NavLink to="/#route" className={ styles.PageNav__NavLink }>
+              <img className={ styles.PageNav__NavImage } src="/Routes/Home/greatuscrossing_pin.png" />
               Route
             </NavLink>
           </GridItem>
           <GridItem divisions={['one-quarter']}>
-            <NavLink to="/#prizes" image="/Routes/Home/greatuscrossing_trophy.png">
+            <NavLink to="/#prizes" className={ styles.PageNav__NavLink }>
+              <img className={ styles.PageNav__NavImage } src="/Routes/Home/greatuscrossing_trophy.png" />
               Prizes
             </NavLink>
           </GridItem>
           <GridItem divisions={['one-quarter']}>
-            <NavLink to="/#fundraising" image="/Routes/Home/greatuscrossing_hands.png">
+            <NavLink to="/#fundraising" className={ styles.PageNav__NavLink }>
+              <img className={ styles.PageNav__NavImage } src="/Routes/Home/greatuscrossing_hands.png" />
               Fundrasing
             </NavLink>
           </GridItem>
