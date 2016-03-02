@@ -1,6 +1,12 @@
 {
   "Routes/Home/first-to-finish.png": "Routes/Home/first-to-finish-989ed3843c.png",
   "Routes/Home/greatest-elevation-gained.png": "Routes/Home/greatest-elevation-gained-daefa71251.png",
+  "Routes/Home/greatuscrossing_bike.png": "Routes/Home/greatuscrossing_bike-649fd91909.png",
+  "Routes/Home/greatuscrossing_greaterthan.png": "Routes/Home/greatuscrossing_greaterthan-a97b6c324a.png",
+  "Routes/Home/greatuscrossing_hands.png": "Routes/Home/greatuscrossing_hands-f20b265842.png",
+  "Routes/Home/greatuscrossing_lessthan.png": "Routes/Home/greatuscrossing_lessthan-023f7591e1.png",
+  "Routes/Home/greatuscrossing_pin.png": "Routes/Home/greatuscrossing_pin-c8c42a0ed2.png",
+  "Routes/Home/greatuscrossing_trophy.png": "Routes/Home/greatuscrossing_trophy-4a01752666.png",
   "Routes/Home/highest-funds-raised.png": "Routes/Home/highest-funds-raised-28c7a93900.png",
   "Routes/Home/location-new-york.jpg": "Routes/Home/location-new-york-fc1b9b19c4.jpg",
   "Routes/Home/location-san-francisco.jpg": "Routes/Home/location-san-francisco-fad6771680.jpg",
@@ -15,7 +21,7 @@
   "components/Logo/negative.png": "components/Logo/negative-1d8b6be6e2.png",
   "components/Logo/negative.svg": "components/Logo/negative-06b407c72a.svg",
   "layouts/Footer/everydayhero.png": "layouts/Footer/everydayhero-859e0131c3.png",
-  "main.css": "main-0fb05efb31.css",
-  "main.js": "main-97e8bf1090.js",
-  "vendor.css": "vendor-52e3fc175c.css"
+  "main.css": "main-8efac21274.css",
+  "main.js": "main-bea4c1125e.js",
+  "vendor.css": "vendor-b419f2ab21.css"
 }
