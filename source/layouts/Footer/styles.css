@@ -1,7 +1,8 @@
 .base {
-  text-align: center;
-  background: #00405f;
-  color: white;
+  composes: darkBlue from '../../components/Section/styles.css';
+  background-image: url('/layouts/Footer/footer-bg.png');
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
 .base a {
