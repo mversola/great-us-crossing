@@ -160,20 +160,20 @@ export default () => (
         <div className={ styles.contentBox }>
           <TextContent>
             <h3>How far will your team ride?</h3>
-            <Grid spacing="none">
-              <GridItem divisions={['full', 'tablet-one-third']}>
+            <Grid spacing="tight">
+              <GridItem divisions={['one-third']}>
                 <BigStat
                   number="31"
                   label="Days"
                 />
               </GridItem>
-              <GridItem divisions={['full', 'tablet-one-third']}>
+              <GridItem divisions={['one-third']}>
                 <BigStat
                   number="300"
                   label="Teams"
                 />
               </GridItem>
-              <GridItem divisions={['full', 'tablet-one-third']}>
+              <GridItem divisions={['one-third']}>
                 <BigStat
                   number="3,000"
                   label="Miles"
