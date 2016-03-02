@@ -3,6 +3,7 @@ const browserifyinc = require('browserify-incremental')
 const buffer = require('vinyl-buffer')
 const cssModulesify = require('css-modulesify')
 const cssNext = require('postcss-cssnext')
+const autoprefixer = require('autoprefixer')
 const envify = require('envify/custom')
 const es3ify = require('es3ify')
 const gulp = require('gulp')
@@ -26,7 +27,7 @@ const BROWSERIFY_OPTS = {
 const CSS_MODULES_OPTS = {
   output: path.join(DEV_DIR, 'main.css'),
   generateScopedName: require('../css-modules-scope-generator'),
-  after: [cssNext]
+  after: [cssNext, autoprefixer]
 }
 
 const clientBundler = browserifyinc(Object.assign({}, BROWSERIFY_OPTS, {
