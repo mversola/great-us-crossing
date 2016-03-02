@@ -1,5 +1,4 @@
 .base {
-  composes: clearfix from '../../css-helpers.css';
   margin-bottom: 0;
 }
 
