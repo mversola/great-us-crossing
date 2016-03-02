@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './styles.css'
-import cssHelpers from '../../css-helpers.css'
 
 class Grid extends React.Component {
   static childContextTypes = {
@@ -19,13 +18,9 @@ class Grid extends React.Component {
 
   render () {
     const { spacing, children } = this.props
-    const classNames = [
-      styles[spacing],
-      cssHelpers.clearfix
-    ].join(' ')
 
     return (
-      <div className={ classNames }>
+      <div className={ styles[spacing] }>
         { children }
       </div>
     )
