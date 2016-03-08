@@ -22,7 +22,7 @@ import route from '../../components/TourTracker/route.js'
 const parsedRoute = JSON.parse(route)
 
 const placeHolderCharities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, i) => (
-  <GridItem key={ i } divisions={['one-half', 'tablet-one-third', 'desktop-one-quarter']}>
+  <GridItem key={ i } divisions={['one-half', 'medium-one-quarter', 'regular-one-fifth']}>
     <div className={ styles.charityPlaceHolder } />
   </GridItem>
 ))
@@ -91,7 +91,7 @@ export default () => (
     <Section id="steps">
       <Steps>
         <Grid>
-          <GridItem divisions={['tablet-one-third']}>
+          <GridItem divisions={['regular-one-third']}>
             <Step image="/Routes/Home/step-1.1.png">
               <TextContent>
                 <h4>Register</h4>
@@ -99,7 +99,7 @@ export default () => (
               </TextContent>
             </Step>
           </GridItem>
-          <GridItem divisions={['tablet-one-third']}>
+          <GridItem divisions={['regular-one-third']}>
             <Step image="/Routes/Home/step-2.2.png">
               <TextContent>
                 <h4>Connect</h4>
@@ -107,7 +107,7 @@ export default () => (
               </TextContent>
             </Step>
           </GridItem>
-          <GridItem divisions={['tablet-one-third']}>
+          <GridItem divisions={['regular-one-third']}>
             <Step image="/Routes/Home/step-3.png">
               <TextContent>
                 <h4>Start fundraising</h4>
@@ -193,7 +193,7 @@ export default () => (
         <h2>Prizes</h2>
         <p>Pedal past notable landmarks, hit key milestones, compete in physical and fundraising challenges, and win awesome prizes and sweet gear along the way.</p>
         <Grid>
-          <GridItem divisions={['full', 'tablet-one-third']}>
+          <GridItem divisions={['full', 'medium-one-third']}>
             <PrizeCategory image="/Routes/Home/first-to-finish.png">
               <TextContent>
                 <h4>First</h4>
@@ -201,7 +201,7 @@ export default () => (
               </TextContent>
             </PrizeCategory>
           </GridItem>
-          <GridItem divisions={['full', 'tablet-one-third']}>
+          <GridItem divisions={['full', 'medium-one-third']}>
             <PrizeCategory image="/Routes/Home/highest-funds-raised.png">
               <TextContent>
                 <h4>Highest</h4>
@@ -209,7 +209,7 @@ export default () => (
               </TextContent>
             </PrizeCategory>
           </GridItem>
-          <GridItem divisions={['full', 'tablet-one-third']}>
+          <GridItem divisions={['full', 'medium-one-third']}>
             <PrizeCategory image="/Routes/Home/greatest-elevation-gained.png">
               <TextContent>
                 <h4>Greatest</h4>
