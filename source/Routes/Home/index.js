@@ -14,6 +14,7 @@ import NavLink from '../../components/NavLink'
 import Section from '../../components/Section'
 import Step from '../../components/Steps/Step'
 import Steps from '../../components/Steps'
+import Sticky from '../../components/Sticky'
 import PrizeCategory from '../../components/PrizeCategory'
 import TourTracker from '../../components/TourTracker'
 import TextContent from '../../components/TextContent'
@@ -46,52 +47,54 @@ export default () => (
       </CallToActionNavLink>
     </Hero>
 
-    <nav role="navigation" className={ styles.PageNav }>
-      <Container type="default">
-        <Grid spacing="none">
-          <GridItem divisions={['one-quarter']}>
-            <NavLink to="/#about" className={ styles.PageNav__NavLink }>
-              <div className={ styles.PageNav__NavLink__icon }>
-                <Icon icon="bike" />
-              </div>
-              <span className={ styles.PageNav__NavLink__text }>
-                About
-              </span>
-            </NavLink>
-          </GridItem>
-          <GridItem divisions={['one-quarter']}>
-            <NavLink to="/#route" className={ styles.PageNav__NavLink }>
-              <div className={ styles.PageNav__NavLink__icon }>
-                <Icon icon="map" />
-              </div>
-              <span className={ styles.PageNav__NavLink__text }>
-                Route
-              </span>
-            </NavLink>
-          </GridItem>
-          <GridItem divisions={['one-quarter']}>
-            <NavLink to="/#prizes" className={ styles.PageNav__NavLink }>
-              <div className={ styles.PageNav__NavLink__icon }>
-                <Icon icon="prize" />
-              </div>
-              <span className={ styles.PageNav__NavLink__text }>
-                Prizes
-              </span>
-            </NavLink>
-          </GridItem>
-          <GridItem divisions={['one-quarter']}>
-            <NavLink to="/#fundraising" className={ styles.PageNav__NavLink }>
-              <div className={ styles.PageNav__NavLink__icon }>
-                <Icon icon="heart" />
-              </div>
-              <span className={ styles.PageNav__NavLink__text }>
-                Fundrasing
-              </span>
-            </NavLink>
-          </GridItem>
-        </Grid>
-      </Container>
-    </nav>
+    <Sticky>
+      <nav role="navigation" className={ styles.PageNav }>
+        <Container type="default">
+          <Grid spacing="none">
+            <GridItem divisions={['one-quarter']}>
+              <NavLink to="/#about" className={ styles.PageNav__NavLink }>
+                <div className={ styles.PageNav__NavLink__icon }>
+                  <Icon icon="bike" />
+                </div>
+                <span className={ styles.PageNav__NavLink__text }>
+                  About
+                </span>
+              </NavLink>
+            </GridItem>
+            <GridItem divisions={['one-quarter']}>
+              <NavLink to="/#route" className={ styles.PageNav__NavLink }>
+                <div className={ styles.PageNav__NavLink__icon }>
+                  <Icon icon="map" />
+                </div>
+                <span className={ styles.PageNav__NavLink__text }>
+                  Route
+                </span>
+              </NavLink>
+            </GridItem>
+            <GridItem divisions={['one-quarter']}>
+              <NavLink to="/#prizes" className={ styles.PageNav__NavLink }>
+                <div className={ styles.PageNav__NavLink__icon }>
+                  <Icon icon="prize" />
+                </div>
+                <span className={ styles.PageNav__NavLink__text }>
+                  Prizes
+                </span>
+              </NavLink>
+            </GridItem>
+            <GridItem divisions={['one-quarter']}>
+              <NavLink to="/#fundraising" className={ styles.PageNav__NavLink }>
+                <div className={ styles.PageNav__NavLink__icon }>
+                  <Icon icon="heart" />
+                </div>
+                <span className={ styles.PageNav__NavLink__text }>
+                  Fundrasing
+                </span>
+              </NavLink>
+            </GridItem>
+          </Grid>
+        </Container>
+      </nav>
+    </Sticky>
 
     <Section id="about">
       <TextContent theme="alignCenter">
@@ -155,7 +158,7 @@ export default () => (
               backgroundImage: 'url(/Routes/Home/location-san-francisco.jpg)',
             }}>
               <TextContent>
-                <h3>Start</h3>
+                <h4>Start</h4>
                 <h4>Golden Gate Bridge</h4>
               </TextContent>
             </div>
@@ -165,7 +168,7 @@ export default () => (
               backgroundImage: 'url(/Routes/Home/location-new-york.jpg)',
             }}>
               <TextContent>
-                <h3>Finish</h3>
+                <h4>Finish</h4>
                 <h4>New York City</h4>
               </TextContent>
             </div>
