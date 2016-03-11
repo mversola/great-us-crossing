@@ -6,7 +6,7 @@ import styles from './styles.css'
 export default () => (
   <footer className={ styles.base }>
     <Container>
-       <TextContent>
+       <TextContent theme="alignCenter">
          <p><em>Fundraising powered by</em><img src="/layouts/Footer/everydayhero.png" /></p>
          <p>
            <a href="https://everydayhero.com/us/terms/privacy">PRIVACY POLICY</a>

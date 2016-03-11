@@ -29,3 +29,10 @@
   background-color: #001e2c;
   color: white;
 }
+
+.faceted {
+  composes: darkBlue;
+  background-image: url('/components/Section/faceted-bg.png');
+  background-size: cover;
+  background-position: 50% 50%;
+}
