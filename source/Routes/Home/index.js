@@ -23,7 +23,7 @@ import styles from './styles.css'
 import route from '../../components/TourTracker/route.js'
 const parsedRoute = JSON.parse(route)
 
-const placeHolderCharities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, i) => (
+const placeHolderCharities = [1, 2, 3, 4, 5].map((_, i) => (
   <GridItem key={ i } divisions={['one-half', 'medium-one-quarter', 'regular-one-fifth']}>
     <div className={ styles.charityPlaceHolder } />
   </GridItem>
@@ -232,7 +232,7 @@ export default () => (
 
     <Section id="prizes">
       <TextContent theme="alignCenter">
-        <h2>Prizes</h2>
+        <h2>Win awesome prizes</h2>
         <p>Pedal past notable landmarks, hit key milestones, compete in physical and fundraising challenges, and win awesome prizes and sweet gear along the way.</p>
         <Grid>
           <GridItem divisions={['full', 'medium-one-third']}>
@@ -265,7 +265,7 @@ export default () => (
 
     <Section id="fundraising" theme="faceted">
       <TextContent>
-        <h2>Charities</h2>
+        <h2>Featured Charities</h2>
         <p>It's all about fundraising for your favorite cause. Choose from one of ten featured charities or choose the cause that's closest to your heart.</p>
         <Grid spacing="tight">
           { placeHolderCharities }
