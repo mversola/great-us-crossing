@@ -5,8 +5,9 @@ const config = require('./config')
 const SOURCE_DIR = config.SOURCE_DIR
 const DEV_DIR = config.DEV_DIR
 const IMAGES = config.IMAGES
+const FONTS = config.FONTS
 
-const STATIC_ASSETS = [].concat(IMAGES).map(
+const STATIC_ASSETS = [].concat(IMAGES, FONTS).map(
   (asset) => path.join(SOURCE_DIR, asset)
 )
 
