@@ -17,7 +17,7 @@
     "cleanup": "xargs rm -rf < .gitignore",
     "dev": "gulp dev",
     "test": "mocha --compilers js:babel-register,css:css-modules-require-hook --recursive source/**/__tests__/*-test.js",
-    "deploy:staging": "npm run build:staging && mkdir ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts && gh-pages -d dist"
+    "deploy:staging": "npm run build:staging && gh-pages -d dist"
   },
   "babel": {
     "presets": [
