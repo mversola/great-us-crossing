@@ -31,7 +31,7 @@ const placeHolderCharities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, i) => (
 export default () => (
   <Main title="The Great US Crossing">
     <Hero background={ <div className={ styles.heroBackground }></div> }>
-      <Container type='inner-two-thirds'>
+      <Container type='inner-one-half'>
         <Logo variant="negative" />
       </Container>
       <h2>
@@ -47,7 +47,7 @@ export default () => (
     </Hero>
 
     <nav role="navigation" className={ styles.PageNav }>
-      <Container>
+      <Container type="default">
         <Grid spacing="none">
           <GridItem divisions={['one-quarter']}>
             <NavLink to="/#about" className={ styles.PageNav__NavLink }>
