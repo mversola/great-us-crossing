@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "icons";
+  src: url('/components/Icon/icons.eot');
+  src: url('/components/Icon/icons.eot?#iefix') format('eot'),
+    url('/components/Icon/icons.woff') format('woff'),
+    url('/components/Icon/icons.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.base { font-family: "icons"; }
+
+.bike { composes: base; }
+.bike:before { content: "\EA01"; }
+
+.heart { composes: base; }
+.heart:before { content: "\EA02"; }
+
+.map { composes: base; }
+.map:before { content: "\EA03"; }
+
+.prize { composes: base; }
+.prize:before { content: "\EA04"; }
+

@@ -10,8 +10,9 @@ const SERVER_APP_DIR = config.SERVER_APP_DIR
 const CSS = config.CSS
 const JS = config.JS
 const IMAGES = config.IMAGES
+const FONTS = config.FONTS
 
-const REVABLE = [].concat(JS, CSS, IMAGES).map(
+const REVABLE = [].concat(JS, CSS, IMAGES, FONTS).map(
   asset => path.join(DEV_DIR, asset)
 )
 

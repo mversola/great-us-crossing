@@ -7,6 +7,7 @@ import Divider from '../../components/Divider'
 import Grid from '../../components/Grid'
 import GridItem from '../../components/Grid/Item'
 import Hero from '../../components/Hero'
+import Icon from '../../components/Icon'
 import Logo from '../../components/Logo'
 import Main from '../../layouts/Main'
 import NavLink from '../../components/NavLink'
@@ -30,7 +31,7 @@ const placeHolderCharities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, i) => (
 export default () => (
   <Main title="The Great US Crossing">
     <Hero background={ <div className={ styles.heroBackground }></div> }>
-      <Container type='inner-two-thirds'>
+      <Container type='inner-one-half'>
         <Logo variant="negative" />
       </Container>
       <h2>
@@ -46,30 +47,46 @@ export default () => (
     </Hero>
 
     <nav role="navigation" className={ styles.PageNav }>
-      <Container>
+      <Container type="default">
         <Grid spacing="none">
           <GridItem divisions={['one-quarter']}>
             <NavLink to="/#about" className={ styles.PageNav__NavLink }>
-              <img className={ styles.PageNav__NavImage } src="/Routes/Home/greatuscrossing_bike.png" />
-              About
+              <div className={ styles.PageNav__NavLink__icon }>
+                <Icon icon="bike" />
+              </div>
+              <span className={ styles.PageNav__NavLink__text }>
+                About
+              </span>
             </NavLink>
           </GridItem>
           <GridItem divisions={['one-quarter']}>
             <NavLink to="/#route" className={ styles.PageNav__NavLink }>
-              <img className={ styles.PageNav__NavImage } src="/Routes/Home/greatuscrossing_pin.png" />
-              Route
+              <div className={ styles.PageNav__NavLink__icon }>
+                <Icon icon="map" />
+              </div>
+              <span className={ styles.PageNav__NavLink__text }>
+                Route
+              </span>
             </NavLink>
           </GridItem>
           <GridItem divisions={['one-quarter']}>
             <NavLink to="/#prizes" className={ styles.PageNav__NavLink }>
-              <img className={ styles.PageNav__NavImage } src="/Routes/Home/greatuscrossing_trophy.png" />
-              Prizes
+              <div className={ styles.PageNav__NavLink__icon }>
+                <Icon icon="prize" />
+              </div>
+              <span className={ styles.PageNav__NavLink__text }>
+                Prizes
+              </span>
             </NavLink>
           </GridItem>
           <GridItem divisions={['one-quarter']}>
             <NavLink to="/#fundraising" className={ styles.PageNav__NavLink }>
-              <img className={ styles.PageNav__NavImage } src="/Routes/Home/greatuscrossing_hands.png" />
-              Fundrasing
+              <div className={ styles.PageNav__NavLink__icon }>
+                <Icon icon="heart" />
+              </div>
+              <span className={ styles.PageNav__NavLink__text }>
+                Fundrasing
+              </span>
             </NavLink>
           </GridItem>
         </Grid>
@@ -86,9 +103,7 @@ export default () => (
       </TextContent>
     </Section>
 
-    <Divider />
-
-    <Section id="steps">
+    <Section id="steps" theme="grey">
       <Steps>
         <Grid>
           <GridItem divisions={['tablet-one-third']}>
