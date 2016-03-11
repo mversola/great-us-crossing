@@ -33,7 +33,9 @@ export default () => (
   <Main title="The Great US Crossing">
     <header className={ styles.FixedHeader }>
       <div className={ styles.FixedHeader__icon }>
-        <Logo variant="icon-positive" />
+        <NavLink to="/">
+          <Logo variant="icon-positive" />
+        </NavLink>
       </div>
       <div className={ styles.FixedHeader__cta }>
         <CallToActionLink href="https://greatuscrossing.everydayhero.com/us/get-started">
