@@ -13,13 +13,13 @@
 
 .default {
   composes: base;
-  color:  #4c80a5;
-  border: 0.125em solid #4c80a5;
+  color:  #2a4f8b;
+  border: 0.125em solid #2a4f8b;
 }
 
 .default:hover {
   color:  white;
-  background-color: #4c80a5;
+  background-color: #2a4f8b;
 }
 
 .outlineNegative {
