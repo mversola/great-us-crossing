@@ -103,9 +103,7 @@ export default () => (
       </TextContent>
     </Section>
 
-    <Divider />
-
-    <Section id="steps">
+    <Section id="steps" theme="grey">
       <Steps>
         <Grid>
           <GridItem divisions={['tablet-one-third']}>

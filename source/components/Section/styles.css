@@ -19,6 +19,11 @@
   color: #bb1c3f;
 }
 
+.grey {
+  composes: base;
+  background-color: #ececec;
+}
+
 .darkBlue {
   composes: base;
   background-color: #001e2c;
