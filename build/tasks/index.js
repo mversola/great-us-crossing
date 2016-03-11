@@ -6,7 +6,9 @@ const browserSync = require('browser-sync').create()
 const bundle = require('./bundle')
 gulp.task('bundle:client-app', bundle.client)
 gulp.task('bundle:server-app', bundle.server)
-gulp.task('bundle:all', ['bundle:client-app', 'bundle:server-app'])
+gulp.task('bundle:all', ['bundle:client-app', 'bundle:server-app'], () => {
+  browserSync.reload()
+})
 
 const scss = require('./scss')
 gulp.task('sass', scss)
@@ -45,8 +47,8 @@ const STATIC_ASSETS = [].concat(IMAGES).map(
   (asset) => path.join(SOURCE_DIR, asset)
 )
 
-gulp.task('watch:bundle', ['bundle:client-app', 'bundle:server-app'], () => {
-  return gulp.watch(BUNDLEABLE_ASSETS, ['bundle:client-app', 'bundle:server-app'])
+gulp.task('watch:bundle', ['bundle:all'], () => {
+  return gulp.watch(BUNDLEABLE_ASSETS, ['bundle:all'])
 })
 
 gulp.task('watch:content', ['content:dev'], () => {
