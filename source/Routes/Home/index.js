@@ -1,7 +1,7 @@
 import React from 'react'
 
 import BigStat from '../../components/BigStat'
-import CallToActionNavLink from '../../components/CallToActionNavLink'
+import CallToActionLink from '../../components/CallToActionLink'
 import Container from '../../components/Container'
 import Divider from '../../components/Divider'
 import Grid from '../../components/Grid'
@@ -42,9 +42,9 @@ export default () => (
         Ride because you care. Ride because you can.<br />
         Ride to make a difference.
       </h3>
-      <CallToActionNavLink to="/#register" theme="outlineNegative">
+      <CallToActionLink href="https://greatuscrossing.everydayhero.com/us/get-started" theme="outlineNegative">
         Register
-      </CallToActionNavLink>
+      </CallToActionLink>
     </Hero>
 
     <Sticky>
@@ -110,7 +110,7 @@ export default () => (
       <Steps>
         <Grid>
           <GridItem divisions={['tablet-one-third']}>
-            <Step image="/Routes/Home/step-1.1.png">
+            <Step image="/Routes/Home/step-blue-1.jpg" icon="register">
               <TextContent>
                 <h4>Register</h4>
                 <p>Take the challenge to ride all the miles you can this May and see how far your team can go. Choose your cause and set yourself a goal. </p>
@@ -118,15 +118,15 @@ export default () => (
             </Step>
           </GridItem>
           <GridItem divisions={['tablet-one-third']}>
-            <Step image="/Routes/Home/step-2.2.png">
+            <Step image="/Routes/Home/step-blue-2.jpg" icon="strava-and-mmf">
               <TextContent>
                 <h4>Connect</h4>
-                <p>Use Strava or MapMyFitness to log miles. As you track your miles your team will progress across the country, working together to reach key milestones and collecting rewards along the way.   </p>
+                <p>Use <strong>Strava</strong> or <strong>MapMyFitness</strong> to log miles. As you track your miles your team will progress across the country, working together to reach key milestones and collecting rewards along the way.   </p>
               </TextContent>
             </Step>
           </GridItem>
           <GridItem divisions={['tablet-one-third']}>
-            <Step image="/Routes/Home/step-3.png">
+            <Step image="/Routes/Home/step-blue-3.jpg" icon="bike">
               <TextContent>
                 <h4>Start fundraising</h4>
                 <p>Share your page and your journey with friends and family, and ask for their support.  Raise funds to make a difference.</p>

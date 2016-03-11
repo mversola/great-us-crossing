@@ -52,3 +52,7 @@
   composes: base;
   text-align: center;
 }
+
+.base strong {
+  font-weight: bold;
+}

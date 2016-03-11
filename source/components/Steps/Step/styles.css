@@ -11,9 +11,23 @@
 .stepIndicator:before {
   content: "Step " counter(steps);
   text-transform: uppercase;
+  color: #bb1c3e;
 }
+
+.circle { position: relative; }
 
 .image {
   max-width: 12em;
-  margin-bottom: 1em;
+  border-radius: 50%;
+}
+
+.circle i {
+  margin: 0;
+  display: block;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6.5em;
 }

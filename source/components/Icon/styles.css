@@ -19,6 +19,15 @@
 .map { composes: base; }
 .map:before { content: "\EA03"; }
 
+.mountain { composes: base; }
+.mountain:before { content: "\EA04"; }
+
 .prize { composes: base; }
-.prize:before { content: "\EA04"; }
+.prize:before { content: "\EA05"; }
+
+.register { composes: base; }
+.register:before { content: "\EA06"; }
+
+.strava-and-mmf { composes: base; }
+.strava-and-mmf:before { content: "\EA07"; }
 
