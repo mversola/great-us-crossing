@@ -55,13 +55,9 @@ export default () => (
       <Container type='inner-one-half'>
         <Logo variant="negative" />
       </Container>
-      <h2>
+      <h1>
         Virtually Ride Across The Country For Charity
-      </h2>
-      <h3>
-        Ride because you care. Ride because you can.<br />
-        Ride to make a difference.
-      </h3>
+      </h1>
       <CallToActionLink href="https://greatuscrossing.everydayhero.com/us/get-started" theme="outlineNegative">
         Register
       </CallToActionLink>
