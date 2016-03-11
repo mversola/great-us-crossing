@@ -8,17 +8,28 @@
   font-size: 0.8em;
   line-height: 1em;
   letter-spacing: 0.125em;
+  transition: color 0.2s linear, background-color 0.2s linear;
 }
 
 .default {
   composes: base;
-  background-color: #4c80a5;
+  color:  #4c80a5;
+  border: 0.125em solid #4c80a5;
+}
+
+.default:hover {
   color:  white;
+  background-color: #4c80a5;
 }
 
 .outlineNegative {
   composes: base;
+  background-color: rgba(255, 2555, 255, 0.1);
   background-color: transparent;
   color:  white;
   border: 0.125em solid white;
+}
+
+.outlineNegative:hover {
+  background-color: rgba(255, 2555, 255, 0.5)
 }

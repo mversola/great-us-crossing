@@ -31,6 +31,17 @@ const placeHolderCharities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, i) => (
 
 export default () => (
   <Main title="The Great US Crossing">
+    <header className={ styles.FixedHeader }>
+      <div className={ styles.FixedHeader__icon }>
+        <Logo variant="icon-positive" />
+      </div>
+      <div className={ styles.FixedHeader__cta }>
+        <CallToActionLink href="https://greatuscrossing.everydayhero.com/us/get-started">
+          Register
+        </CallToActionLink>
+      </div>
+    </header>
+
     <Hero background={ <div className={ styles.heroBackground }></div> }>
       <Container type='inner-one-half'>
         <Logo variant="negative" />
@@ -102,7 +113,11 @@ export default () => (
         <p>This spring, join the country's most passionate and dedicated cyclists in an epic challenge to (virtually) ride across the country, collectively covering thousands of miles in teams of up to five members to raise funds and awareness for charity.</p>
         <p>Wherever you live, wherever you ride, whatever your pace, or fitness level see how far you can cross.</p>
         <p>Ride for clean water. Ride for equal access to education. Ride to find a cure. Ride for refugees. Ride for the arts, for animals, for access to bikes.   Whatever your cause, ride to make a difference.  </p>
-        <p>Join us.</p>
+        <p>
+          <CallToActionLink href="https://greatuscrossing.everydayhero.com/us/get-started">
+            Join us
+          </CallToActionLink>
+        </p>
       </TextContent>
     </Section>
 
