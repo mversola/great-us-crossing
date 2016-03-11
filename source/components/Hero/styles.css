@@ -6,6 +6,8 @@
   padding-bottom: 0;
 }
 
+.base > * { margin-top: 0; }
+
 .background {
   position: absolute;
   left: 0;
