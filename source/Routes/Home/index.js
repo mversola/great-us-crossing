@@ -135,7 +135,7 @@ export default () => (
           </GridItem>
         </Grid>
         <TextContent>
-          <p>Questions before you begin? Find your answers <a href="">here</a>.</p>
+          <p>Questions before you begin? Find your answers <a href=" https://supporter.help-us.everydayhero.com/hc/en-us/sections/201814296-Great-US-Crossing">here</a>.</p>
         </TextContent>
       </Steps>
     </Section>
