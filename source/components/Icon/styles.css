@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "icons";
+  src: url('/components/Icon/icons.eot');
+  src: url('/components/Icon/icons.eot?#iefix') format('eot'),
+    url('/components/Icon/icons.woff') format('woff'),
+    url('/components/Icon/icons.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.base { font-family: "icons"; }
+
+.heart { composes: base; }
+.heart:before { content: "\EA01"; }
+
