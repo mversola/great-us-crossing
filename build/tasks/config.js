@@ -3,6 +3,7 @@ module.exports = {
   DEV_DIR: '.dev',
   DEST_DIR: 'dist',
   SERVER_APP_DIR: '.server',
+  BUILD_TEMPLATES_DIR: 'templates',
   JS: [
     '**/*.js'
   ],
@@ -14,6 +15,11 @@ module.exports = {
     '**/*.png',
     '**/*.jpg',
     '**/*.gif'
+  ],
+  FONTS: [
+    '**/*.ttf',
+    '**/*.eot',
+    '**/*.woff'
   ],
   DATA: [
     '**/*.json'
