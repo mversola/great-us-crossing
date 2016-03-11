@@ -10,6 +10,15 @@
 
 .base { font-family: "icons"; }
 
+.bike { composes: base; }
+.bike:before { content: "\EA01"; }
+
 .heart { composes: base; }
-.heart:before { content: "\EA01"; }
+.heart:before { content: "\EA02"; }
+
+.map { composes: base; }
+.map:before { content: "\EA03"; }
+
+.prize { composes: base; }
+.prize:before { content: "\EA04"; }
 
