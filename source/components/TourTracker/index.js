@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import styles from './styles.css'
 
 export default class extends React.Component {
   static propTypes = {
@@ -11,7 +12,8 @@ export default class extends React.Component {
   }
 
   componentDidMount () {
-    this._L = require('leaflet')
+    this._L = global.L
+    this._L.mapbox.accessToken = 'pk.eyJ1IjoicGFya2VyYnJhZHMiLCJhIjoiY2lsYWVua2lhMDR4aXVna250aXc3eG54OCJ9.QjhkzoGgIOoLpV9k-ImrBw'
     this._map = this._L.map(ReactDOM.findDOMNode(this), { zoomControl: false })
 
     this._map.dragging.disable()
@@ -28,8 +30,8 @@ export default class extends React.Component {
     this._map.fitBounds(routePoints, {
       padding: [50, 50]
     })
-    this._L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-      attribution: '&copy <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy <a href="http://cartodb.com/attributions">CartoDB</a>'
+    this._L.tileLayer('https://api.mapbox.com/v4/parkerbrads.6bc7d29e/{z}/{x}/{y}@2x.png?access_token=' + this._L.mapbox.accessToken, {
+      attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(this._map)
     this.renderRoutes()
   }
@@ -44,7 +46,7 @@ export default class extends React.Component {
       (routeDatum) => routeDatum.point
     )
     this.renderRoute(routePoints, {
-      color: '#f3391f'
+      color: '#FFF'
     })
   }
 
@@ -57,6 +59,6 @@ export default class extends React.Component {
   }
 
   render () {
-    return <div style={{ height: '100%' }} />
+    return <div className={ styles.base } />
   }
 }
