@@ -44,7 +44,14 @@ export default () => (
       </div>
     </header>
 
-    <Hero background={ <div className={ styles.heroBackground }></div> }>
+    <Hero background={
+      <div className={ styles.heroBackground }>
+        <video className={ styles.heroVideo } autoPlay autoStart loop muted>
+          <source src="/Routes/Home/video/video.mp4" type="video/mp4" />
+          <source src="/Routes/Home/video/video.ogv" type="video/ogg" />
+          <source src="/Routes/Home/video/video.webm" type="video/webm" />
+        </video>
+      </div> }>
       <Container type='inner-one-half'>
         <Logo variant="negative" />
       </Container>

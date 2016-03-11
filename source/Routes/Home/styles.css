@@ -14,6 +14,11 @@
   background-position: 50% 50%;
   background-size: cover;
   background-image: url('/Routes/Home/rider-hero.jpg');
+  overflow: hidden;
+}
+
+.heroVideo {
+  width: 100%;
 }
 
 .floatingBox {
