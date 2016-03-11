@@ -22,8 +22,12 @@
 }
 
 .base h2 {
-  font-size: 1.5em;
+  font-size: 1.75em;
   letter-spacing: 0.025em;
+}
+
+.base * + h2 {
+  margin-top: 1em;
 }
 
 .base h3 {
