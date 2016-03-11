@@ -49,44 +49,44 @@
   width: calc(100% / 6);
 }
 
-@media screen and (min-width: 700px) {
-  .tablet-full {
+@media screen and (min-width: 500px) {
+  .medium-full {
     composes: base;
     width: 100%;
   }
-  .tablet-one-half {
+  .medium-one-half {
     composes: base;
     width: calc(100% / 2);
   }
-  .tablet-one-third {
+  .medium-one-third {
     composes: base;
     width: calc(100% / 3);
   }
-  .tablet-two-thirds {
+  .medium-two-thirds {
     composes: base;
     width: calc(100% / 3 * 2);
   }
-  .tablet-one-quarter {
+  .medium-one-quarter {
     composes: base;
     width: calc(100% / 4);
   }
-  .tablet-three-quarters {
+  .medium-three-quarters {
     composes: base;
     width: calc(100% / 4 * 3);
   }
-  .tablet-one-fifth {
+  .medium-one-fifth {
     composes: base;
     width: calc(100% / 5);
   }
-  .tablet-two-fifths {
+  .medium-two-fifths {
     composes: base;
     width: calc(100% / 5 * 2);
   }
-  .tablet-three-fifths {
+  .medium-three-fifths {
     composes: base;
     width: calc(100% / 5 * 3);
   }
-  .tablet-four-fifths {
+  .medium-four-fifths {
     composes: base;
     width: calc(100% / 5 * 4);
   }
@@ -96,44 +96,44 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
-  .desktop-full {
+@media screen and (min-width: 750px) {
+  .regular-full {
     composes: base;
     width: 100%;
   }
-  .desktop-one-half {
+  .regular-one-half {
     composes: base;
     width: calc(100% / 2);
   }
-  .desktop-one-third {
+  .regular-one-third {
     composes: base;
     width: calc(100% / 3);
   }
-  .desktop-two-thirds {
+  .regular-two-thirds {
     composes: base;
     width: calc(100% / 3 * 2);
   }
-  .desktop-one-quarter {
+  .regular-one-quarter {
     composes: base;
     width: calc(100% / 4);
   }
-  .desktop-three-quarters {
+  .regular-three-quarters {
     composes: base;
     width: calc(100% / 4 * 3);
   }
-  .desktop-one-fifth {
+  .regular-one-fifth {
     composes: base;
     width: calc(100% / 5);
   }
-  .desktop-two-fifths {
+  .regular-two-fifths {
     composes: base;
     width: calc(100% / 5 * 2);
   }
-  .desktop-three-fifths {
+  .regular-three-fifths {
     composes: base;
     width: calc(100% / 5 * 3);
   }
-  .desktop-four-fifths {
+  .regular-four-fifths {
     composes: base;
     width: calc(100% / 5 * 4);
   }
