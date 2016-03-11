@@ -44,6 +44,10 @@
   composes: base;
   width: calc(100% / 5 * 4);
 }
+.one-sixth {
+  composes: base;
+  width: calc(100% / 6);
+}
 
 @media screen and (min-width: 700px) {
   .tablet-full {
@@ -85,6 +89,10 @@
   .tablet-four-fifths {
     composes: base;
     width: calc(100% / 5 * 4);
+  }
+  .tabet-one-sixth {
+    composes: base;
+    width: calc(100% / 6);
   }
 }
 
@@ -128,5 +136,9 @@
   .desktop-four-fifths {
     composes: base;
     width: calc(100% / 5 * 4);
+  }
+  .desktop-one-sixth {
+    composes: base;
+    width: calc(100% / 6);
   }
 }
