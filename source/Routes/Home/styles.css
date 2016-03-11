@@ -31,7 +31,7 @@
 }
 
 .locationTile {
-  comsposes: contentBox;
+  composes: contentBox;
   color: white;
   background-size: cover;
   background-position: 50% 50%;
