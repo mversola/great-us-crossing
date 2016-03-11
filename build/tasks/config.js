@@ -16,6 +16,14 @@ module.exports = {
     '**/*.jpg',
     '**/*.gif'
   ],
+  VIDEOS: [
+    '**/*.mp4',
+    '**/*.ogv',
+    '**/*.webm'
+  ],
+  PDFS: [
+    '**/*.pdf'
+  ],
   FONTS: [
     '**/*.ttf',
     '**/*.eot',
