@@ -3,6 +3,7 @@ import React from 'react'
 import BigStat from '../../components/BigStat'
 import CallToActionLink from '../../components/CallToActionLink'
 import Container from '../../components/Container'
+import CharitiesList from '../../components/CharitiesList'
 import Divider from '../../components/Divider'
 import Grid from '../../components/Grid'
 import GridItem from '../../components/Grid/Item'
@@ -22,12 +23,6 @@ import TextContent from '../../components/TextContent'
 import styles from './styles.css'
 import route from '../../components/TourTracker/route.js'
 const parsedRoute = JSON.parse(route)
-
-const placeHolderCharities = [1, 2, 3, 4, 5].map((_, i) => (
-  <GridItem key={ i } divisions={['one-half', 'medium-one-quarter', 'regular-one-fifth']}>
-    <div className={ styles.charityPlaceHolder } />
-  </GridItem>
-))
 
 export default () => (
   <Main title="The Great US Crossing">
@@ -263,9 +258,7 @@ export default () => (
       <TextContent>
         <h2>Featured Charities</h2>
         <p>It's all about fundraising for your favorite cause. Choose from one of ten featured charities or choose the cause that's closest to your heart.</p>
-        <Grid spacing="tight">
-          { placeHolderCharities }
-        </Grid>
+        <CharitiesList />
       </TextContent>
     </Section>
   </Main>

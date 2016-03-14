@@ -1,0 +1,30 @@
+.base {
+  cursor: pointer;
+  position: relative;
+  background-color: white;
+  border-radius: 2px;
+  transition: transform 0.2s ease;
+}
+
+.base:hover {
+  transform: scale(1.1);
+}
+
+.base:before {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+
+.image {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: lightgrey;
+}
+
+img.image {
+  width: 80%;
+}
