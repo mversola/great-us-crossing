@@ -213,9 +213,6 @@ export default () => (
                 />
               </GridItem>
             </Grid>
-            <p>
-              Thousands of cyclists virtually crossing the country for charity
-            </p>
           </TextContent>
         </div>
       </div>
