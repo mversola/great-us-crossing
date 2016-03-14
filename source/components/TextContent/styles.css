@@ -18,11 +18,11 @@
 .base h1,
 .base h2 {
   line-height: 1em;
+  font-weight: 300;
 }
 
 .base h1 {
   font-size: 2em;
-  font-weight: 300;
   letter-spacing: 0.0125em;
   margin-bottom: 0.5em;
 }
