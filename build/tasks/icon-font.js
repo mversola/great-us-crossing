@@ -34,7 +34,7 @@ module.exports = (done) => {
             path.basename = 'styles'
             path.extname = ".css"
           }))
-          .pipe(gulp.dest(path.join(SOURCE_DIR, 'components/Icon')))
+          .pipe(gulp.dest(path.join(DEV_DIR, 'components/Icon')))
           .on('finish', cb)
       })
     },
