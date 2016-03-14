@@ -255,7 +255,7 @@ export default () => (
     </Section>
 
     <Section id="fundraising" theme="faceted">
-      <TextContent>
+      <TextContent theme="alignCenter">
         <h2>Featured Charities</h2>
         <p>It's all about fundraising for your favorite cause. Choose from one of ten featured charities or choose the cause that's closest to your heart.</p>
         <CharitiesList />
