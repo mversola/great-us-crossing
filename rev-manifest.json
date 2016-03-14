@@ -29,9 +29,9 @@
   "components/CharitiesList/images/wwsn.png": "components/CharitiesList/images/wwsn-4436244741.png",
   "components/CharitiesList/images/yourcause.png": "components/CharitiesList/images/yourcause-d7d752eef8.png",
   "components/Divider/positive.svg": "components/Divider/positive-283011ddda.svg",
-  "components/Icon/icons.eot": "components/Icon/icons-6dd67532ff.eot",
-  "components/Icon/icons.ttf": "components/Icon/icons-18cbf59f16.ttf",
-  "components/Icon/icons.woff": "components/Icon/icons-e3ccbcb6c6.woff",
+  "components/Icon/icons.eot": "components/Icon/icons-53b4d8d6c0.eot",
+  "components/Icon/icons.ttf": "components/Icon/icons-259ad20054.ttf",
+  "components/Icon/icons.woff": "components/Icon/icons-e328189814.woff",
   "components/Icon/icons/bike.svg": "components/Icon/icons/bike-25ab97bb87.svg",
   "components/Icon/icons/heart.svg": "components/Icon/icons/heart-59f2e1fd9c.svg",
   "components/Icon/icons/map.svg": "components/Icon/icons/map-4239aa36bd.svg",
@@ -45,8 +45,8 @@
   "components/Section/faceted-bg.png": "components/Section/faceted-bg-3e977ba137.png",
   "layouts/Footer/everydayhero.png": "layouts/Footer/everydayhero-859e0131c3.png",
   "layouts/Footer/footer-bg.png": "layouts/Footer/footer-bg-661789ae8d.png",
-  "main.css": "main-d916ed30b2.css",
-  "main.js": "main-7ff1e6e7a6.js",
+  "main.css": "main-8b6415c54a.css",
+  "main.js": "main-f2f43ceb02.js",
   "terms_and_conditions.pdf": "terms_and_conditions-4f6966b4cb.pdf",
   "vendor.css": "vendor-1962dd402b.css"
 }
