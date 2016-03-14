@@ -17,7 +17,8 @@
     "cleanup": "xargs rm -rf < .gitignore",
     "dev": "gulp dev",
     "test": "mocha --compilers js:babel-register,css:css-modules-require-hook --recursive source/**/__tests__/*-test.js",
-    "deploy:staging": "npm run build:staging && gh-pages -d dist"
+    "deploy:staging": "npm run build:staging && gh-pages -d dist",
+    "deploy:prod": "npm run build:prod && gulp deploy:prod"
   },
   "babel": {
     "presets": [
@@ -70,6 +71,7 @@
     "express": "^4.13.3",
     "gh-pages": "^0.8.0",
     "gulp": "^3.9.1",
+    "gulp-awspublish": "^3.0.1",
     "gulp-iconfont": "^6.0.0",
     "gulp-markdown-to-json": "^0.2.1",
     "gulp-mustache": "^2.2.0",

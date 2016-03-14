@@ -36,6 +36,18 @@ gulp.task('generate-static', ['revreplace:server-bundle', 'revreplace:assets'], 
 const serve = require('./serve')(browserSync)
 gulp.task('serve', ['bundle:server-app'], serve)
 
+const awsConfig  = require('../../aws.json')
+const deployRoot = require('./deploy')(
+ Object.assign({}, awsConfig.default, awsConfig.root)
+)
+gulp.task('deploy:prod:root', deployRoot)
+
+const deployWWW = require('./deploy')(
+ Object.assign({}, awsConfig.default, awsConfig.www)
+)
+gulp.task('deploy:prod:www', deployWWW)
+gulp.task('deploy:prod', ['deploy:prod:root', 'deploy:prod:www'])
+
 const config = require('./config')
 const SOURCE_DIR = config.SOURCE_DIR
 const CSS = config.CSS

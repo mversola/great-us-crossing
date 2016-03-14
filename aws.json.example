@@ -1,0 +1,13 @@
+{
+  "default": {
+    "region": "BUCKET_REGION",
+    "key": "YOUR_KEY",
+    "secret": "YOUR_SECRET"
+  },
+  "root": {
+    "bucket": "example.com"
+  },
+  "www": {
+    "bucket": "www.example.com"
+  }
+}

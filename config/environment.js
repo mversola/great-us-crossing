@@ -15,8 +15,8 @@ const config = {
       "basePath": ""
     },
     "client": {
-      "host": "http://everydayhero.github.io",
-      "basePath": "/great-us-crossing"
+      "host": "http://greatuscrossing.com",
+      "basePath": ""
     }
   },
   "development": {
