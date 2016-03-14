@@ -21,7 +21,7 @@ const BROWSERIFY_OPTS = {
   entries: [path.join(SOURCE_DIR, 'index.js')],
   transform: [babelify, es3ify],
   standalone: 'app',
-  debug: true
+  debug: process.env.NODE_ENV !== 'production'
 }
 
 const CSS_MODULES_OPTS = {
