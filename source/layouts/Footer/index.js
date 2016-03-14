@@ -22,7 +22,7 @@ export default () => (
          </p>
         <p>
           <a href="https://everydayhero.com/us/terms/privacy">PRIVACY POLICY</a>
-          <a href="/terms_and_conditions.pdf">TERMS &amp; CONDITIONS</a>
+          <a href="http://everydayhero.do.s3.amazonaws.com/www.greatuscrossing.com/terms_and_conditions-4f6966b4cb.pdf">TERMS &amp; CONDITIONS</a>
           <a href="https://supporter.help-us.everydayhero.com/hc/en-us/sections/201814296-Great-US-Crossing">HELP</a>
         </p>
       </TextContent>
