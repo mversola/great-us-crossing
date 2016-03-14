@@ -4,3 +4,4 @@ browserify-cache.json
 .dev
 .server
 npm-debug.log
+aws.json
