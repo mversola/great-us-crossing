@@ -18,7 +18,14 @@
 }
 
 .heroVideo {
-  width: 100%;
+  display: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .heroVideo {
+    display: block;
+    width: 100%;
+  }
 }
 
 .floatingBox {
