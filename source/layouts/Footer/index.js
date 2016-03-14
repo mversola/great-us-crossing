@@ -22,7 +22,7 @@ export default () => (
          </p>
         <p>
           <a href="https://everydayhero.com/us/terms/privacy">PRIVACY POLICY</a>
-          <a href={ `${host}${basePath}/terms_and_conditions.pdf` }>TERMS &amp; CONDITIONS</a>
+          <a href="/terms_and_conditions.pdf">TERMS &amp; CONDITIONS</a>
           <a href="https://supporter.help-us.everydayhero.com/hc/en-us/sections/201814296-Great-US-Crossing">HELP</a>
         </p>
       </TextContent>
