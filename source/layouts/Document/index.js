@@ -6,6 +6,7 @@ export default ({ title, content }) => (
     <head>
       <title>{ title }</title>
       <meta charSet="utf-8" />
+      <meta name="description" content="Join the country's most passionate and dedicated cyclists in an epic challenge to (virtually) ride across the country, collectively covering thousands of miles in teams of up to five members to raise funds and awareness for charity." />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.2/es5-shim.min.js" />
