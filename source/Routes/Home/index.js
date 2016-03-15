@@ -136,7 +136,7 @@ export default () => (
             <Step image="/Routes/Home/step-blue-2.jpg" icon="strava-and-mmf">
               <TextContent>
                 <h4>Connect</h4>
-                <p>Use <strong><a href="https://supporter.help-us.everydayhero.com/hc/en-us/articles/207813846-How-Do-I-Use-Strava-To-Log-My-Miles-for-The-Great-US-Crossing-">Strava</a></strong> or <strong><a href="https://supporter.help-us.everydayhero.com/hc/en-us/articles/207813886-How-Do-I-Use-MapMyFitness-to-Log-My-Miles-in-the-Great-US-Crossing-">MapMyFitness</a></strong> to log miles. As you track your miles your team will progress across the country, working together to reach key milestones and collecting rewards along the way.   </p>
+                <p>Use <strong><a href="https://supporter.help-us.everydayhero.com/hc/en-us/articles/207813846-How-Do-I-Use-Strava-To-Log-My-Miles-for-The-Great-US-Crossing-">Strava</a></strong> or <strong><a href="https://supporter.help-us.everydayhero.com/hc/en-us/articles/207813886-How-Do-I-Use-MapMyFitness-to-Log-My-Miles-in-the-Great-US-Crossing-">MapMyFitness</a></strong> to log miles. As you track your miles, your team will progress across the country, working together to reach key milestones and collecting rewards along the way.   </p>
               </TextContent>
             </Step>
           </GridItem>
