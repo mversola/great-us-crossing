@@ -163,7 +163,7 @@ export default () => (
         <div className={ styles.contentBox }>
           <TextContent>
             <h2>The Course</h2>
-            <p>The Great US Crossing course starts in San Francisco and stretches over 3000 virtual miles, passing through 13 states finishing in New York City.  As your team logs miles from rides in your own neighborhoods, the virtual course map on this website will dynamically update to move you closer to your goal.</p>
+            <p>The Great US Crossing course starts in San Francisco and stretches nearly 3000 virtual miles, passing through 13 states finishing in New York City. As your team logs miles from rides in your own neighborhoods, the tour tracker and course map on this website will dynamically update to move you closer to your goal.</p>
           </TextContent>
         </div>
 
