@@ -42,9 +42,9 @@ export default () => (
     <Hero background={
       <div className={ styles.heroBackground }>
         <video className={ styles.heroVideo } autoPlay autoStart loop muted>
-          <source src="/Routes/Home/video/video.mp4" type="video/mp4" />
-          <source src="/Routes/Home/video/video.ogv" type="video/ogg" />
-          <source src="/Routes/Home/video/video.webm" type="video/webm" />
+          <source src="https://everydayhero.do.s3.amazonaws.com/greatuscrossing.com/Routes/Home/video/video.mp4" type="video/mp4" />
+          <source src="https://everydayhero.do.s3.amazonaws.com/greatuscrossing.com/Routes/Home/video/video.ogv" type="video/ogg" />
+          <source src="https://everydayhero.do.s3.amazonaws.com/greatuscrossing.com/Routes/Home/video/video.webm" type="video/webm" />
         </video>
       </div> }>
       <Container type='inner-one-half'>
