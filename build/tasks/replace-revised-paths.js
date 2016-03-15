@@ -16,7 +16,7 @@ const revReplaceOptions = (manifest) => ({
   manifest: manifest,
   replaceInExtensions: ['.js', '.css', '.json'],
   modifyUnreved: (name) => `/${ name }`,
-  modifyReved: (name) => `${ environment.client.host }${ environment.client.basePath }/${ name }`
+  modifyReved: (name) => `${ environment.client.basePath || '/' }/${ name }`
 })
 
 const REV_REPLACEABLE_ASSETS = [].concat(JS, CSS, DATA).map(

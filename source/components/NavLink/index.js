@@ -4,9 +4,15 @@ import config from '../../../config/environment'
 
 const { client: { basePath }} = config
 
-export default (props) => (
-  <Link
-    { ...props }
-    to={ `${ basePath }${ props.to }` }
-  />
-)
+export default (props) => {
+  const base = ((basePath === '/') || !basePath)
+    ? ''
+    : basePath
+
+  return (
+    <Link
+      { ...props }
+      to={ `${ base }${ props.to }` }
+    />
+  )
+}
