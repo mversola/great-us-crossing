@@ -12,12 +12,19 @@ const CSS = config.CSS
 const JS = config.JS
 const DATA = config.DATA
 
-const revReplaceOptions = (manifest) => ({
-  manifest: manifest,
-  replaceInExtensions: ['.js', '.css', '.json'],
-  modifyUnreved: (name) => `/${ name }`,
-  modifyReved: (name) => `${ environment.client.basePath || '/' }${ name }`
-})
+const revReplaceOptions = (manifest) => {
+  const basePath = environment.client.basePath
+  const base = (!basePath || (basePath === '/'))
+    ? ''
+    : basePath
+
+  return {
+    manifest: manifest,
+    replaceInExtensions: ['.js', '.css', '.json'],
+    modifyUnreved: (name) => `/${ name }`,
+    modifyReved: (name) => `${ base }/${ name }`
+  }
+}
 
 const REV_REPLACEABLE_ASSETS = [].concat(JS, CSS, DATA).map(
   asset => path.join(DEST_DIR, asset)
