@@ -235,7 +235,7 @@ export default () => (
             <PrizeCategory image="/Routes/Home/highest-funds-raised.png">
               <TextContent>
                 <h4>Highest</h4>
-                <p>Fundraiser</p>
+                <p>Team and Individual Fundraiser</p>
               </TextContent>
             </PrizeCategory>
           </GridItem>
