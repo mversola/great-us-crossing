@@ -10,3 +10,7 @@
 :global(.leaflet-tile-container) * {
   margin-top: 0;
 }
+
+:global(.leaflet-overlay-pane) {
+  margin-top: 0;
+}
