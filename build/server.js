@@ -1,11 +1,10 @@
 'use strict'
 
 const express = require('express')
-const http    = require('http')
-const fs      = require('fs')
-const path    = require('path')
+const http = require('http')
+const path = require('path')
 
-const BASE  = path.resolve(__dirname, '../.dev')
+const BASE = path.resolve(__dirname, '../.dev')
 
 const routes = require('../config/static-routes')
 
@@ -24,5 +23,6 @@ routes.forEach((route) => {
   })
 })
 
-module.exports = (callback) =>
+module.exports = (callback) => (
   http.createServer(server).listen(8080, callback)
+)
