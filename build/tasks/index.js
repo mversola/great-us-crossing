@@ -35,7 +35,7 @@ gulp.task('generate-static', ['revreplace:server-bundle', 'revreplace:assets'], 
 const serve = require('./serve')(browserSync)
 gulp.task('serve', ['bundle:server-app'], serve)
 
-const awsConfig  = require('../../aws.json')
+const awsConfig = require('../../aws.json')
 const deployRoot = require('./deploy')(
  Object.assign({}, awsConfig.default, awsConfig.root)
 )
