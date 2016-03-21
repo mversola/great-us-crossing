@@ -1,0 +1,82 @@
+.base {
+  margin-top: 0;
+  position: relative;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+  z-index: 1002;
+}
+
+.base > * { margin-top: 0; }
+
+.background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #001e2c;
+  background-image: url('/layouts/Hero/rider-hero.jpg');
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 0;
+}
+
+.background:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.video {
+  display: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .video {
+    display: block;
+    width: 100%;
+  }
+}
+
+.content {
+  position: relative;
+  font-size: 1.5em;
+  font-size: 3vw;
+  color: white;
+}
+
+@media screen and (min-width: 800px) {
+  .content {
+    font-size: 1.5em;
+  }
+}
+
+.headline {
+  margin-top: 0.8em;
+}
+
+.partnerLogo {
+  position: relative;
+}
+
+.partnerLogo:before {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+  background-color: white;
+  border-radius: 0.125em;
+}
+
+.partnerLogo__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+}

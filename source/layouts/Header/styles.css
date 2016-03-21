@@ -1,13 +1,32 @@
-.base {
-  font-size: 0.8em;
-  position: relative;
-  padding: 1em;
+.FixedHeader {
+  margin: 0;
+  padding: 0.75em;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 1002;
+  font-size: 0.5em;
+  text-align: right;
+  background-color: whitesmoke;
 }
 
-.logo {
-  width: 3em;
+.FixedHeader__cta {
+  margin: 0;
 }
 
-.userNav {
-  float: right;
+.FixedHeader__icon {
+  width: 3.75em;
+  position: absolute;
+  left: 1.25em;
+  top: 0.75em;
+}
+
+@media screen and (min-width: 700px) {
+  .FixedHeader__icon {
+    width: 3em;
+  }
+  .FixedHeader {
+    font-size: 0.7em;
+  }
 }

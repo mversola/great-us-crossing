@@ -1,32 +1,18 @@
 import React from 'react'
 import Grid from '../../components/Grid'
 import CharityCard from './CharityCard'
+import YourChoiceCharityCard from './YourChoiceCharityCard'
 
-const charities = [
-  {
-    image: '/components/CharitiesList/images/msaa.png',
-    href: 'https://greatuscrossing.everydayhero.com/us/multiple-sclerosis-association-of-america-inc/get-started'
-  },
-  {
-    image: '/components/CharitiesList/images/tfk.jpg',
-    href: 'https://greatuscrossing.everydayhero.com/us/trips-for-kids/get-started'
-  },
-  {
-    image: '/components/CharitiesList/images/wwsn.png',
-    href: ' https://greatuscrossing.everydayhero.com/us/wounded-warrior-support-network/get-started'
-  },
-  {
-    image: '/components/CharitiesList/images/yourcause.png',
-    href: 'https://greatuscrossing.everydayhero.com/us/multiple-sclerosis-association-of-america-inc/get-started'
-  }
-]
+const renderCharities = (charities) => (
+  charities.map((charity, i) => (
+    <CharityCard key={i} image={charity.image} link={charity.link} />
+  )).concat(
+    <YourChoiceCharityCard key={charities.length} />
+  )
+)
 
-const charityElems = charities.map((charity, i) => (
-  <CharityCard key={ i } image={ charity.image } href={ charity.href } />
-))
-
-export default () => (
-  <Grid spacing="tight">
-    { charityElems }
+export default ({ charities }) => (
+  <Grid spacing='tight'>
+    {renderCharities(charities)}
   </Grid>
 )

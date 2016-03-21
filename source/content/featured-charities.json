@@ -1,0 +1,17 @@
+[
+  {
+    "name": "MSAA",
+    "image": "/content/featured-charities/msaa/logo.png",
+    "link": "/featured-charities/msaa"
+  },
+  {
+    "name": "Trips for Kids",
+    "image": "/content/featured-charities/trips-for-kids/logo.jpg",
+    "link": "/featured-charities/trips-for-kids"
+  },
+  {
+    "name": "WWSN",
+    "image": "/content/featured-charities/wwsn/logo.png",
+    "link": "/featured-charities/wwsn"
+  }
+]
