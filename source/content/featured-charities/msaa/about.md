@@ -10,3 +10,5 @@ The Multiple Sclerosis Association of America (MSAA) is a leading resource for t
 Founded in 1970, this national nonprofit organization provides free services throughout the U.S. for everyone affected by MS. Programs include a Helpline, educational videos and publications, safety and mobility equipment distribution, cooling accessories, educational events, and more.
 
 MSAA also offers Shared Management tools – such as our award-winning mobile app, My MS ManagerTM – to help patients and healthcare providers work together on education, training, and use of technology to manage the ever-changing course of multiple sclerosis and achieve the best possible health outcomes.
+
+A change.
