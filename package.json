@@ -27,9 +27,14 @@
       "react"
     ]
   },
-  "dependencies": {
-    "react-dom": "^0.14.6"
+  "standard": {
+    "globals": [
+      "describe",
+      "context",
+      "it"
+    ]
   },
+  "dependencies": {},
   "eslintConfig": {
     "env": {
       "browser": true,
