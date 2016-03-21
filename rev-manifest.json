@@ -14,9 +14,9 @@
   "components/CharitiesList/images/tfk.jpg": "components/CharitiesList/images/tfk-6e16d97191.jpg",
   "components/CharitiesList/images/wwsn.png": "components/CharitiesList/images/wwsn-4436244741.png",
   "components/CharitiesList/images/yourcause.png": "components/CharitiesList/images/yourcause-d7d752eef8.png",
-  "components/Icon/icons.eot": "components/Icon/icons-2d505f897e.eot",
-  "components/Icon/icons.ttf": "components/Icon/icons-84bfc10749.ttf",
-  "components/Icon/icons.woff": "components/Icon/icons-fa3baac822.woff",
+  "components/Icon/icons.eot": "components/Icon/icons-6e2a7c1e08.eot",
+  "components/Icon/icons.ttf": "components/Icon/icons-c30f3da015.ttf",
+  "components/Icon/icons.woff": "components/Icon/icons-5b7e9449da.woff",
   "components/Icon/icons/bike.svg": "components/Icon/icons/bike-25ab97bb87.svg",
   "components/Icon/icons/heart.svg": "components/Icon/icons/heart-59f2e1fd9c.svg",
   "components/Icon/icons/map.svg": "components/Icon/icons/map-4239aa36bd.svg",
@@ -36,8 +36,8 @@
   "layouts/Hero/rider-hero.jpg": "layouts/Hero/rider-hero-9bcf6ee867.jpg",
   "layouts/Route/location-new-york.jpg": "layouts/Route/location-new-york-679087c15b.jpg",
   "layouts/Route/location-san-francisco.jpg": "layouts/Route/location-san-francisco-f7b1cac1fa.jpg",
-  "main.css": "main-4a4d38f68d.css",
-  "main.js": "main-b47a3f50ec.js",
+  "main.css": "main-3f7921fec5.css",
+  "main.js": "main-ee057caa45.js",
   "terms_and_conditions.pdf": "terms_and_conditions-19d22f0c07.pdf",
   "vendor.css": "vendor-1962dd402b.css"
 }
