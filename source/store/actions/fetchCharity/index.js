@@ -11,6 +11,8 @@ import store from '../../'
 import receiveCharitySuccess from '../receiveCharitySuccess'
 import receiveCharityFailure from '../receiveCharityFailure'
 
+import config from '../../../../config/environment.js'
+
 if (typeof Promise === 'undefined') {
   es6Promise.polyfill()
 }
@@ -35,7 +37,11 @@ const server = (slug) => {
 }
 
 const client = (slug) => {
-  const path = `/content/featured-charities/${slug}/index.json`
+  const basePath = config.client.basePath === '/'
+    ? ''
+    : config.client.basePath
+
+  const path = `${basePath}/content/featured-charities/${slug}/index.json`
 
   global.fetch(path)
     .then((response) => {
