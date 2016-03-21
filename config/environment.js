@@ -1,32 +1,26 @@
 const config = {
-  "staging": {
-    "server": {
-      "host": "http://localhost:8080",
-      "basePath": "/"
+  'staging': {
+    'server': {
+      'basePath': '/'
     },
-    "client": {
-      "host": "https://everydayhero.github.io",
-      "basePath": "/great-us-crossing"
+    'client': {
+      'basePath': '/great-us-crossing'
     }
   },
-  "production": {
-    "server": {
-      "host": "http://localhost:8080",
-      "basePath": "/"
+  'production': {
+    'server': {
+      'basePath': '/'
     },
-    "client": {
-      "host": "http://greatuscrossing.com",
-      "basePath": "/"
+    'client': {
+      'basePath': '/'
     }
   },
-  "development": {
-    "server": {
-      "host": "http://localhost:8080",
-      "basePath": "/"
+  'development': {
+    'server': {
+      'basePath': '/'
     },
-    "client": {
-      "host": "http://lvh.me:8080",
-      "basePath": "/"
+    'client': {
+      'basePath': '/'
     }
   }
 }
