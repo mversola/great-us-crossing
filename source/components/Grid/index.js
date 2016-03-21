@@ -3,15 +3,7 @@ import styles from './styles.css'
 import { clearfix } from '../../css-helpers.css'
 
 class Grid extends React.Component {
-  static childContextTypes = {
-    spacing: React.PropTypes.string
-  }
-
-  static defaultProps = {
-    spacing: 'default'
-  }
-
-  getChildContext() {
+  getChildContext () {
     return {
       spacing: this.props.spacing
     }
@@ -21,11 +13,19 @@ class Grid extends React.Component {
     const { spacing, children } = this.props
 
     return (
-      <div className={ `${ clearfix } ${ styles[spacing] }` }>
-        { children }
+      <div className={`${clearfix} ${styles[spacing]}`}>
+        {children}
       </div>
     )
   }
+}
+
+Grid.childContextTypes = {
+  spacing: React.PropTypes.string
+}
+
+Grid.defaultProps = {
+  spacing: 'default'
 }
 
 export default Grid
