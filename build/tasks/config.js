@@ -29,6 +29,10 @@ module.exports = {
     '**/*.eot',
     '**/*.woff'
   ],
+  CONTENT: [
+    'content/**/*.md',
+    'content/**/*.json'
+  ],
   DATA: [
     '**/*.json'
   ]
