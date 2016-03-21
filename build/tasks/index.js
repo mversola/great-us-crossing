@@ -17,11 +17,10 @@ const scss = require('./scss')
 gulp.task('sass', scss)
 
 const content = require('./content')
-gulp.task('content:dev', content.dev)
-gulp.task('content:prod', content.prod)
+gulp.task('content', content)
 
 const revision = require('./revision')
-gulp.task('revision', ['bundle:all', 'sass', 'static-assets', 'content:prod'], revision)
+gulp.task('revision', ['bundle:all', 'sass', 'static-assets', 'content'], revision)
 
 const staticAssets = require('./static-assets')
 gulp.task('static-assets', ['icon-font'], staticAssets)
@@ -66,8 +65,12 @@ gulp.task('watch:bundle', ['bundle:all'], () => {
   return gulp.watch(BUNDLEABLE_ASSETS, ['bundle:all'])
 })
 
-gulp.task('watch:content', ['content:dev'], () => {
-  return gulp.watch(path.join(SOURCE_DIR, 'content/**/*.md'), ['content:dev'])
+const CONTENT_SOURCES = ['content/**/*.md', 'content/**/*.json'].map((source) => (
+  path.join(SOURCE_DIR, source)
+))
+
+gulp.task('watch:content', ['content'], () => {
+  return gulp.watch(CONTENT_SOURCES, ['content'])
 })
 
 gulp.task('watch:sass', ['sass'], () => {
