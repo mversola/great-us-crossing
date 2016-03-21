@@ -48,8 +48,8 @@
 }
 
 .base img {
-  width: 100%;
-  max-width: auto;
+  width: auto;
+  max-width: 100%;
 }
 
 .default { composes: base; }
